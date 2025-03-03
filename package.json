@@ -1,0 +1,21 @@
+{
+  "name": "valdezdata-blog",
+  "version": "1.0.0",
+  "description": "A terminal-themed blog using Eleventy with tokyonight colors",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [
+    "blog",
+    "eleventy",
+    "terminal",
+    "dataengineering"
+  ],
+  "author": "ValdezData",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

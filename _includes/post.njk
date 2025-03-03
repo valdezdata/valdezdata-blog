@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+
+<article class="post">
+  <h1 class="post-header">{{ title }}</h1>
+  
+  <div class="post-meta">
+    <time datetime="{{ page.date | dateFormat }}">{{ page.date | dateFormat }}</time>
+    {% if tags %}
+      • 
+      {% for tag in tags %}
+        {% if tag != "post" %}
+          <a href="/tags/{{ tag | lowercase }}/" class="tag">{{ tag }}</a>{% if not loop.last %} {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+  
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+  
+  <div class="post-navigation">
+    <a href="/">> cd ..</a>
+  </div>
+</article>

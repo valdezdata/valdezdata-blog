@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asegurando la Integridad de Datos con dbt Tests | VALDEZDATA</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+      </div>
+      <div class="terminal-title">valdezdata@blog:~</div>
+    </div>
+    
+    <div class="terminal-content">
+      <div class="ascii-header">
+        <a href="/" class="ascii-link">
+        <pre>
+██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
+██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
+██║   ██║███████║██║     ██║  ██║█████╗    ███╔╝ ██║  ██║███████║   ██║   ███████║
+╚██╗ ██╔╝██╔══██║██║     ██║  ██║██╔══╝   ███╔╝  ██║  ██║██╔══██║   ██║   ██╔══██║
+ ╚████╔╝ ██║  ██║███████╗██████╔╝███████╗███████╗██████╔╝██║  ██║   ██║   ██║  ██║
+  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+        </pre>
+        </a>
+      </div>
+      
+      <div class="typing-container">
+        <div class="typing-text" id="typing-text"></div>
+        <div class="cursor"></div>
+      </div>
+      
+      <div class="tags-container" id="tags-container">
+        <!-- Tags will be added dynamically by JavaScript -->
+      </div>
+      
+      <nav class="terminal-nav">
+        <ul>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> Usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+        </ul>
+      </nav>
+      
+      <div class="content">
+        
+<article class="post">
+  <h1 class="post-header">Asegurando la Integridad de Datos con dbt Tests</h1>
+  
+  <div class="post-meta">
+    <time datetime="Feb 9, 2023">Feb 9, 2023</time>
+    
+      • 
+      
+        
+          <a href="/tags/data-integrity/" class="tag">data-integrity</a> 
+        
+      
+        
+          <a href="/tags/dbt/" class="tag">dbt</a> 
+        
+      
+        
+          <a href="/tags/testing/" class="tag">testing</a>
+        
+      
+    
+  </div>
+  
+  <div class="post-content">
+    <h1>Asegurando la Integridad de Datos con dbt Tests</h1>
+<p>En el mundo de los datos, la confianza es fundamental. Para que los stakeholders tomen decisiones basadas en datos, necesitan tener plena confianza en la integridad de esos datos. Aquí es donde dbt (data build tool) y su sistema de pruebas se vuelven esenciales para cualquier stack moderno de datos.</p>
+<h2>¿Por qué necesitamos pruebas de datos?</h2>
+<p>Sin pruebas sistemáticas, los problemas comunes incluyen:</p>
+<ul>
+<li>Valores duplicados en columnas que deberían ser únicas</li>
+<li>Referencias huérfanas a registros que no existen</li>
+<li>Valores nulos en campos críticos</li>
+<li>Anomalías estadísticas o outliers</li>
+</ul>
+<h2>Pruebas incorporadas en dbt</h2>
+<p>dbt viene con cuatro pruebas genéricas que pueden solucionar la mayoría de los casos de uso básicos:</p>
+<pre><code class="language-yaml"># models/schema.yml
+version: 2
+
+models:
+  - name: customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+      - name: plan_type
+        tests:
+          - accepted_values:
+              values: [&quot;free&quot;, &quot;starter&quot;, &quot;professional&quot;, &quot;enterprise&quot;]
+
+      - name: service_rep_id
+        tests:
+          - relationships:
+              to: ref('service_reps')
+              field: id
+</code></pre>
+<h2>Pruebas personalizadas para lógica de negocio</h2>
+<p>Las pruebas incorporadas son solo el comienzo. Para reglas de negocio específicas, podemos crear pruebas personalizadas en SQL:</p>
+<pre><code class="language-sql">-- tests/total_should_match_detail.sql
+-- Ejemplo de una prueba personalizada en SQL:
+
+with
+total_values as (
+    select
+        order_id,
+        total_amount
+    from orders
+),
+
+detail_values as (
+    select
+        order_id,
+        sum(amount) as detail_total
+    from order_items
+    group by 1
+),
+
+mismatches as (
+    select
+        t.order_id,
+        t.total_amount,
+        d.detail_total,
+        abs(t.total_amount - d.detail_total) as diff
+    from total_values t
+    join detail_values d on t.order_id = d.order_id
+    where abs(t.total_amount - d.detail_total) &gt; 0.01
+)
+
+select * from mismatches
+</code></pre>
+<h2>Implementación en tu flujo de trabajo</h2>
+<p>Para integrar las pruebas en tu pipeline:</p>
+<pre><code class="language-bash"># Ejecutar todas las pruebas
+dbt test
+
+# Ejecutar pruebas específicas
+dbt test --models customers
+
+# Pruebas como parte del CI/CD
+dbt build  # combina dbt run y dbt test
+</code></pre>
+<h2>Monitoreando la calidad de datos a lo largo del tiempo</h2>
+<p>Las pruebas puntuales son útiles, pero el monitoreo continuo es mejor:</p>
+<ol>
+<li>Programa ejecuciones de pruebas regulares (diarias/horarias)</li>
+<li>Integra alertas cuando fallen las pruebas</li>
+<li>Construye dashboards de calidad de datos</li>
+</ol>
+<h2>Conclusión</h2>
+<p>Invertir en pruebas de datos desde el principio paga dividendos enormes a largo plazo: mejora la confianza, reduce el tiempo de depuración y permite refactorizar con confianza. dbt proporciona las herramientas necesarias para implementar una cultura de calidad de datos en tu organización.</p>
+<pre><code class="language-bash">echo &quot;Datos confiables, decisiones confiables.&quot; &gt; /dev/stdout
+</code></pre>
+
+  </div>
+  
+  <div class="post-navigation">
+    <a href="/">> cd ..</a>
+  </div>
+</article>
+
+      </div>
+      
+      <div class="terminal-footer">
+        <p>© 2025 VALDEZDATA - Built with <a href="https://www.11ty.dev/">11ty</a> and 💙</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/terminal.js"></script>
+</body>
+</html>

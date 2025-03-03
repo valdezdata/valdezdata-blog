@@ -1,0 +1,496 @@
+:root {
+  /* Tokyo Night Theme Colors */
+  --bg-color: #1a1b26;
+  --text-color: #a9b1d6;
+  --accent-color: #7aa2f7;
+  --secondary-color: #bb9af7;
+  --prompt-color: #9ece6a;
+  --link-color: #7dcfff;
+  --highlight-color: #ff9e64;
+  --error-color: #f7768e;
+  --success-color: #9ece6a;
+  --warning-color: #e0af68;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  background-color: #16161e;
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.terminal {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+}
+
+.terminal-header {
+  background-color: #24283b;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 6px;
+  margin-right: 20px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-button.red {
+  background-color: var(--error-color);
+}
+
+.terminal-button.yellow {
+  background-color: var(--warning-color);
+}
+
+.terminal-button.green {
+  background-color: var(--success-color);
+}
+
+.terminal-title {
+  color: var(--text-color);
+  font-size: 14px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.terminal-content {
+  background-color: var(--bg-color);
+  padding: 20px;
+  min-height: 500px;
+}
+
+.ascii-header {
+  color: var(--accent-color);
+  font-size: 16px; /* Increased size */
+  line-height: 1;
+  margin-bottom: 20px;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.ascii-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.ascii-link:hover {
+  color: var(--highlight-color);
+}
+
+.typing-container {
+  display: flex;
+  margin-bottom: 15px;
+  height: 20px;
+}
+
+.typing-text {
+  color: var(--prompt-color);
+  font-weight: bold;
+}
+
+.cursor {
+  width: 10px;
+  height: 18px;
+  margin-left: 2px;
+  background-color: var(--prompt-color);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.tag {
+  color: var(--highlight-color);
+}
+
+.terminal-nav {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #24283b;
+  padding-bottom: 10px;
+}
+
+.terminal-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.terminal-nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.terminal-nav a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.content {
+  padding-top: 20px;
+}
+
+.command-prompt {
+  color: var(--prompt-color);
+  font-weight: bold;
+  margin: 30px 0 15px 0;
+  padding: 10px 0;
+  border-top: 1px dashed #24283b;
+  font-size: 1.1em;
+}
+
+.post-list {
+  margin-bottom: 30px;
+}
+
+.post-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #24283b;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-title {
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.post-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.post-meta .tag {
+  color: var(--highlight-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-meta .tag:hover {
+  color: var(--accent-color);
+}
+
+.post-excerpt {
+  margin-bottom: 10px;
+}
+
+.read-more {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #24283b;
+}
+
+.pagination a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.terminal-footer {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #24283b;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.terminal-footer a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.terminal-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Post header - this will replace the h1 that was getting duplicated */
+.post-header {
+  color: var(--secondary-color);
+  font-size: 2em;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #24283b;
+  padding-bottom: 10px;
+}
+
+/* Blog post content styles */
+.post-content h1 {
+  display: none; /* Hide the h1 to prevent duplication */
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  color: var(--secondary-color);
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.post-content p {
+  margin-bottom: 20px;
+}
+
+.post-content code {
+  background-color: #24283b;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.post-content pre {
+  background-color: #24283b;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.post-content a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  text-decoration: underline;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--accent-color);
+  padding-left: 15px;
+  color: var(--text-color);
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.command-output {
+  color: var(--prompt-color);
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.command-output .prompt {
+  font-weight: bold;
+}
+
+/* Apply content styling to posts */
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: var(--secondary-color);
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.content p {
+  margin-bottom: 20px;
+}
+
+.content code {
+  background-color: #24283b;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.content pre {
+  background-color: #24283b;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.content a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+.content ul,
+.content ol {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.content blockquote {
+  border-left: 3px solid var(--accent-color);
+  padding-left: 15px;
+  color: var(--text-color);
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.post-navigation {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px dashed #24283b;
+}
+
+/* Tags page styles */
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.tag-item {
+  background-color: #24283b;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.tag-item:hover {
+  background-color: #2c3149;
+  transform: translateY(-2px);
+}
+
+.tag-link {
+  color: var(--highlight-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tag-link:hover {
+  color: var(--highlight-color);
+}
+
+.tag-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #24283b;
+  font-size: 1.1em;
+}
+
+.tag-description {
+  margin-top: 20px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.tag-navigation {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px dashed #24283b;
+}
+
+/* Make post tags clickable */
+.post-meta .tag {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.post-meta .tag:after {
+  content: "";
+}
+
+@media (max-width: 768px) {
+  .terminal {
+    width: 95%;
+  }
+
+  .ascii-header pre {
+    font-size: 8px; /* Slightly bigger on mobile too */
+  }
+
+  .terminal-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tags-list {
+    gap: 10px;
+  }
+
+  .tag-item {
+    padding: 6px 10px;
+  }
+}

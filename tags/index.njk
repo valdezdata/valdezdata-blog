@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: Tags
+---
+
+<h2 class="command-prompt">> ls -la tags/</h2>
+
+<div class="tags-list">
+  {% for tag in collections.tagList %}
+    <div class="tag-item">
+      <a href="/tags/{{ tag }}/" class="tag-link">#{{ tag }}</a>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="tag-description">
+  <p>Click on a tag to see all related posts.</p>
+</div>
