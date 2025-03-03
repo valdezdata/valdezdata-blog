@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asegurando la Integridad de Datos con dbt Tests | VALDEZDATA</title>
-  <link rel="stylesheet" href="/valdezdata-blog/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/prism-tokyo-night.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="VALDEZDATA Blog">
 </head>
 <body>
   <div class="terminal">
@@ -22,7 +24,7 @@
     
     <div class="terminal-content">
       <div class="ascii-header">
-        <a href="/valdezdata-blog/" class="ascii-link">
+        <a href="/" class="ascii-link">
         <pre>
 ██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
 ██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
@@ -45,10 +47,11 @@
       
       <nav class="terminal-nav">
         <ul>
-          <li><a href="/valdezdata-blog/">> home</a></li>
-          <li><a href="/valdezdata-blog/whoami/">> whoami</a></li>
-          <li><a href="/valdezdata-blog/usos/">> Usos</a></li>
-          <li><a href="/valdezdata-blog/tags/">> tags</a></li>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> Usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+          <li><a href="/feed.xml">> RSS</a></li>
         </ul>
       </nav>
       
@@ -58,20 +61,20 @@
   <h1 class="post-header">Asegurando la Integridad de Datos con dbt Tests</h1>
   
   <div class="post-meta">
-    <time datetime="Feb 10, 2023">Feb 10, 2023</time>
+    <time datetime="Feb 9, 2023">Feb 9, 2023</time>
     
       • 
       
         
-          <a href="/valdezdata-blog/tags/data-integrity/" class="tag">data-integrity</a> 
+          <a href="/tags/data-integrity/" class="tag">data-integrity</a> 
         
       
         
-          <a href="/valdezdata-blog/tags/dbt/" class="tag">dbt</a> 
+          <a href="/tags/dbt/" class="tag">dbt</a> 
         
       
         
-          <a href="/valdezdata-blog/tags/testing/" class="tag">testing</a>
+          <a href="/tags/testing/" class="tag">testing</a>
         
       
     
@@ -90,73 +93,70 @@
 </ul>
 <h2>Pruebas incorporadas en dbt</h2>
 <p>dbt viene con cuatro pruebas genéricas que pueden solucionar la mayoría de los casos de uso básicos:</p>
-<pre><code class="language-yaml"># models/schema.yml
-version: 2
+<pre class="language-yaml"><code class="language-yaml"><span class="token comment"># models/schema.yml</span>
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">2</span>
 
-models:
-  - name: customers
-    columns:
-      - name: customer_id
-        tests:
-          - unique
-          - not_null
+<span class="token key atrule">models</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> customers
+    <span class="token key atrule">columns</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> customer_id
+        <span class="token key atrule">tests</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> unique
+          <span class="token punctuation">-</span> not_null
 
-      - name: plan_type
-        tests:
-          - accepted_values:
-              values: [&quot;free&quot;, &quot;starter&quot;, &quot;professional&quot;, &quot;enterprise&quot;]
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> plan_type
+        <span class="token key atrule">tests</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">accepted_values</span><span class="token punctuation">:</span>
+              <span class="token key atrule">values</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"free"</span><span class="token punctuation">,</span> <span class="token string">"starter"</span><span class="token punctuation">,</span> <span class="token string">"professional"</span><span class="token punctuation">,</span> <span class="token string">"enterprise"</span><span class="token punctuation">]</span>
 
-      - name: service_rep_id
-        tests:
-          - relationships:
-              to: ref('service_reps')
-              field: id
-</code></pre>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> service_rep_id
+        <span class="token key atrule">tests</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">relationships</span><span class="token punctuation">:</span>
+              <span class="token key atrule">to</span><span class="token punctuation">:</span> ref('service_reps')
+              <span class="token key atrule">field</span><span class="token punctuation">:</span> id</code></pre>
 <h2>Pruebas personalizadas para lógica de negocio</h2>
 <p>Las pruebas incorporadas son solo el comienzo. Para reglas de negocio específicas, podemos crear pruebas personalizadas en SQL:</p>
-<pre><code class="language-sql">-- tests/total_should_match_detail.sql
--- Ejemplo de una prueba personalizada en SQL:
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- tests/total_should_match_detail.sql</span>
+<span class="token comment">-- Ejemplo de una prueba personalizada en SQL:</span>
 
-with
-total_values as (
-    select
-        order_id,
+<span class="token keyword">with</span>
+total_values <span class="token keyword">as</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span>
+        order_id<span class="token punctuation">,</span>
         total_amount
-    from orders
-),
+    <span class="token keyword">from</span> orders
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-detail_values as (
-    select
-        order_id,
-        sum(amount) as detail_total
-    from order_items
-    group by 1
-),
+detail_values <span class="token keyword">as</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span>
+        order_id<span class="token punctuation">,</span>
+        <span class="token function">sum</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token keyword">as</span> detail_total
+    <span class="token keyword">from</span> order_items
+    <span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">1</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-mismatches as (
-    select
-        t.order_id,
-        t.total_amount,
-        d.detail_total,
-        abs(t.total_amount - d.detail_total) as diff
-    from total_values t
-    join detail_values d on t.order_id = d.order_id
-    where abs(t.total_amount - d.detail_total) &gt; 0.01
-)
+mismatches <span class="token keyword">as</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span>
+        t<span class="token punctuation">.</span>order_id<span class="token punctuation">,</span>
+        t<span class="token punctuation">.</span>total_amount<span class="token punctuation">,</span>
+        d<span class="token punctuation">.</span>detail_total<span class="token punctuation">,</span>
+        abs<span class="token punctuation">(</span>t<span class="token punctuation">.</span>total_amount <span class="token operator">-</span> d<span class="token punctuation">.</span>detail_total<span class="token punctuation">)</span> <span class="token keyword">as</span> diff
+    <span class="token keyword">from</span> total_values t
+    <span class="token keyword">join</span> detail_values d <span class="token keyword">on</span> t<span class="token punctuation">.</span>order_id <span class="token operator">=</span> d<span class="token punctuation">.</span>order_id
+    <span class="token keyword">where</span> abs<span class="token punctuation">(</span>t<span class="token punctuation">.</span>total_amount <span class="token operator">-</span> d<span class="token punctuation">.</span>detail_total<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.01</span>
+<span class="token punctuation">)</span>
 
-select * from mismatches
-</code></pre>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> mismatches</code></pre>
 <h2>Implementación en tu flujo de trabajo</h2>
 <p>Para integrar las pruebas en tu pipeline:</p>
-<pre><code class="language-bash"># Ejecutar todas las pruebas
-dbt test
+<pre class="language-bash"><code class="language-bash"><span class="token comment"># Ejecutar todas las pruebas</span>
+dbt <span class="token builtin class-name">test</span>
 
-# Ejecutar pruebas específicas
-dbt test --models customers
+<span class="token comment"># Ejecutar pruebas específicas</span>
+dbt <span class="token builtin class-name">test</span> <span class="token parameter variable">--models</span> customers
 
-# Pruebas como parte del CI/CD
-dbt build  # combina dbt run y dbt test
-</code></pre>
+<span class="token comment"># Pruebas como parte del CI/CD</span>
+dbt build  <span class="token comment"># combina dbt run y dbt test</span></code></pre>
 <h2>Monitoreando la calidad de datos a lo largo del tiempo</h2>
 <p>Las pruebas puntuales son útiles, pero el monitoreo continuo es mejor:</p>
 <ol>
@@ -166,13 +166,12 @@ dbt build  # combina dbt run y dbt test
 </ol>
 <h2>Conclusión</h2>
 <p>Invertir en pruebas de datos desde el principio paga dividendos enormes a largo plazo: mejora la confianza, reduce el tiempo de depuración y permite refactorizar con confianza. dbt proporciona las herramientas necesarias para implementar una cultura de calidad de datos en tu organización.</p>
-<pre><code class="language-bash">echo &quot;Datos confiables, decisiones confiables.&quot; &gt; /dev/stdout
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"Datos confiables, decisiones confiables."</span> <span class="token operator">></span> /dev/stdout</code></pre>
 
   </div>
   
   <div class="post-navigation">
-    <a href="/valdezdata-blog/">> cd ..</a>
+    <a href="/">> cd ..</a>
   </div>
 </article>
 
@@ -184,6 +183,6 @@ dbt build  # combina dbt run y dbt test
     </div>
   </div>
   
-  <script src="/valdezdata-blog/js/terminal.js"></script>
+  <script src="/js/terminal.js"></script>
 </body>
 </html>

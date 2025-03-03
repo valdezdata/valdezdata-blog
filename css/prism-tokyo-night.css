@@ -1,0 +1,172 @@
+/**
+ * Tokyo Night theme for Prism.js
+ * Based on the Tokyo Night VS Code theme with colors from the tokyonight.nvim theme
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #a9b1d6;
+  background: #1a1b26;
+  text-shadow: none;
+  font-family: "JetBrains Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #34384d;
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #34384d;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 5px;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #24283b;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #565f89;
+}
+
+.token.punctuation {
+  color: #9aa5ce;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f7768e;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #9ece6a;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #bb9af7;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #7aa2f7;
+}
+
+.token.function,
+.token.class-name {
+  color: #7dcfff;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ff9e64;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Line highlighting */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #3b3d5033;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+.line-highlight:before,
+.line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: 0.4em;
+  left: 0.6em;
+  min-width: 1em;
+  padding: 0 0.5em;
+  background-color: #5a5d7a;
+  color: #a9b1d6;
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: 0.3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+.line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: 0.4em;
+}
