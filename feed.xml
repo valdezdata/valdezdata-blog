@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>VALDEZDATA Blog</title>
-  <subtitle>Desbloqueando el potencial de los datos</subtitle>
-  <link href="https://valdezdata.github.io/valdezdata-blog/feed.xml" rel="self"/>
-  <link href="https://valdezdata.github.io/valdezdata-blog/"/>
+  <title>valdezdata blog</title>
+  <subtitle>Desbloqueando el Potencial de los Datos</subtitle>
+  <link href="https://valdezdata.com/feed.xml" rel="self"/>
+  <link href="https://valdezdata.com/"/>
   <updated>Invalid Date</updated>
-  <id>https://valdezdata.github.io/valdezdata-blog/</id>
+  <id>https://valdezdata.com/</id>
   <author>
     <name>VALDEZDATA</name>
   </author>
   <entry>
     <title>Una explicación Sencilla de los Términos de Gestión de datos</title>
-    <link href="https://valdezdata.github.io/valdezdata-blog/blog/data-terms/"/>
+    <link href="https://valdezdata.com/blog/data-terms/"/>
     <updated>2/10/2025</updated>
-    <id>https://valdezdata.github.io/valdezdata-blog/blog/data-terms/</id>
+    <id>https://valdezdata.com/blog/data-terms/</id>
     <content type="html"><![CDATA[<h2>&gt; cat intro.txt</h2>
 <p>Si alguna vez te has sentido abrumado por términos como Data Lake, Metadata o Data Governance, entonces has llegado al lugar correcto.</p>
 <p>Entiendo que incluso un solo concepto puede tener diferentes interpretaciones, así que mi objetivo no es definir, sino explicar estos términos de manera sencilla con ejemplos o contexto.</p>
@@ -298,9 +298,9 @@ y de los recursos de gestión de datos.</p>
   </entry>
   <entry>
     <title>Por qué ser un Arquitecto de Datos</title>
-    <link href="https://valdezdata.github.io/valdezdata-blog/blog/por-que-ser-arquitecto-de-datos/"/>
+    <link href="https://valdezdata.com/blog/por-que-ser-arquitecto-de-datos/"/>
     <updated>2/11/2025</updated>
-    <id>https://valdezdata.github.io/valdezdata-blog/blog/por-que-ser-arquitecto-de-datos/</id>
+    <id>https://valdezdata.com/blog/por-que-ser-arquitecto-de-datos/</id>
     <content type="html"><![CDATA[<h3>TL;DR</h3>
 <p>Un Arquitecto de Datos diseña la estructura de almacenamiento, organización y utilización de datos para garantizar la calidad y flexibilidad de los mismos. Se enfoca en la estrategia y tácticas, trabajando en estrecha colaboración con ingenieros de datos para implementar la arquitectura. Comprender el ciclo de vida de la ingeniería de datos y los desafíos comunes es clave para agregar el valor empresarial necesario.</p>
 <h2>&gt; cat intro.txt</h2>
