@@ -10,7 +10,7 @@ title: Home
     {% for post in collections.posts %}
       <article class="post-item">
         <h2 class="post-title">
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
+          <a href="{{ post.url | url }}">{{ post.data.title }}</a>
         </h2>
         <div class="post-meta">
           <time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat }}</time>
@@ -18,7 +18,7 @@ title: Home
             • 
             {% for tag in post.data.tags %}
               {% if tag != "post" %}
-                <a href="/tags/{{ tag | lowercase }}/" class="tag">{{ tag }}</a>{% if not loop.last %} {% endif %}
+                <a href="{{ ('/tags/' + (tag | lowercase) + '/') | url }}" class="tag">{{ tag }}</a>{% if not loop.last %} {% endif %}
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -30,13 +30,13 @@ title: Home
             {{ post.templateContent | striptags | truncate(150) }}
           {% endif %}
         </div>
-        <a href="{{ post.url }}" class="read-more">Read more ></a>
+        <a href="{{ post.url | url }}" class="read-more">Read more ></a>
       </article>
     {% endfor %}
     
     {% if collections.posts.length > 5 %}
       <div class="pagination">
-        <a href="/blog/page-2/">next ></a>
+        <a href="{{ '/blog/page-2/' | url }}">next ></a>
       </div>
     {% endif %}
   {% else %}

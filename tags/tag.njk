@@ -20,7 +20,7 @@ eleventyComputed:
   {% for post in taglist | reverse %}
     <article class="post-item">
       <h2 class="post-title">
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
+        <a href="{{ post.url | url }}">{{ post.data.title }}</a>
       </h2>
       <div class="post-meta">
         <time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat }}</time>
@@ -28,7 +28,7 @@ eleventyComputed:
           • 
           {% for posttag in post.data.tags %}
             {% if posttag != "post" %}
-              <span class="tag">{{ posttag }}</span>
+              <a href="{{ ('/tags/' + (posttag | lowercase) + '/') | url }}" class="tag">{{ posttag }}</a>{% if not loop.last %} {% endif %}
             {% endif %}
           {% endfor %}
         {% endif %}
@@ -40,11 +40,11 @@ eleventyComputed:
           {{ post.templateContent | striptags | truncate(150) }}
         {% endif %}
       </div>
-      <a href="{{ post.url }}" class="read-more">Read more ></a>
+      <a href="{{ post.url | url }}" class="read-more">Read more ></a>
     </article>
   {% endfor %}
 </div>
 
 <div class="tag-navigation">
-  <p><a href="/tags/">> cd ../</a></p>
+  <p><a href="{{ '/tags/' | url }}">> cd ../</a></p>
 </div>

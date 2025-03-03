@@ -57,7 +57,7 @@ module.exports = function (eleventyConfig) {
   // }
 
   return {
-    /* pathPrefix: pathPrefix, */
+    pathPrefix: "/valdezdata-blog",
     dir: {
       input: ".",
       output: "_site",
