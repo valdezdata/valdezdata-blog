@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Por qué ser un Arquitecto de Datos | VALDEZDATA</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/prism-tokyo-night.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="VALDEZDATA Blog">
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+      </div>
+      <div class="terminal-title">valdezdata@blog:~</div>
+    </div>
+    
+    <div class="terminal-content">
+      <div class="ascii-header">
+        <a href="/" class="ascii-link">
+        <pre>
+██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
+██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
+██║   ██║███████║██║     ██║  ██║█████╗    ███╔╝ ██║  ██║███████║   ██║   ███████║
+╚██╗ ██╔╝██╔══██║██║     ██║  ██║██╔══╝   ███╔╝  ██║  ██║██╔══██║   ██║   ██╔══██║
+ ╚████╔╝ ██║  ██║███████╗██████╔╝███████╗███████╗██████╔╝██║  ██║   ██║   ██║  ██║
+  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+        </pre>
+        </a>
+      </div>
+      
+      <div class="typing-container">
+        <div class="typing-text" id="typing-text"></div>
+        <div class="cursor"></div>
+      </div>
+      
+      <div class="tags-container" id="tags-container">
+        <!-- Tags will be added dynamically by JavaScript -->
+      </div>
+      
+      <nav class="terminal-nav">
+        <ul>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+          <li><a href="/feed.xml">> rss</a></li>
+        </ul>
+      </nav>
+      
+      <div class="content">
+        
+<article class="post">
+  <h1 class="post-header">Por qué ser un Arquitecto de Datos</h1>
+  
+  <div class="post-meta">
+    <time datetime="Feb 10, 2025">Feb 10, 2025</time>
+    
+      • 
+      
+        
+          <a href="/tags/data-engineering/" class="tag">data-engineering</a> 
+        
+      
+        
+          <a href="/tags/data-architect/" class="tag">data-architect</a> 
+        
+      
+        
+          <a href="/tags/data-architecture/" class="tag">data-architecture</a> 
+        
+      
+        
+          <a href="/tags/career/" class="tag">career</a> 
+        
+      
+        
+          <a href="/tags/data-roles/" class="tag">data-roles</a>
+        
+      
+    
+  </div>
+  
+  <div class="post-content">
+    <h3>TL;DR</h3>
+<p>Un Arquitecto de Datos diseña la estructura de almacenamiento, organización y utilización de datos para garantizar la calidad y flexibilidad de los mismos. Se enfoca en la estrategia y tácticas, trabajando en estrecha colaboración con ingenieros de datos para implementar la arquitectura. Comprender el ciclo de vida de la ingeniería de datos y los desafíos comunes es clave para agregar el valor empresarial necesario.</p>
+<h2>&gt; cat intro.txt</h2>
+<p>Hoy en día, es esencial que los datos puedan ser accedidos y reutilizados no solo por profesionales, sino también por usuarios comunes, como aquellos que utilizan redes sociales y tratan de descargar su propia información.</p>
+<p>Tareas como crear, guardar, ingerir, transformar, procesar y visualizar datos requieren tiempo y esfuerzo.</p>
+<p>Además, mantener la seguridad, ejecutar la gestión, realizar operaciones, detallar la orquestación, preservar buenas prácticas de ingeniería de software y definir la estrategia de arquitectura de datos son aspectos críticos del ecosistema de datos.</p>
+<p>De todos estos puntos, quiero centrarme en la arquitectura de datos. Existen varios roles relacionados con los datos en el mercado laboral que a veces pueden resultar abrumadores o difíciles de distinguir entre sí.</p>
+<p>Si tienes experiencia trabajando con datos, es posible que hayas notado que a veces un Analista de Datos realiza tareas que típicamente son realizadas por un Ingeniero de Datos, o viceversa.</p>
+<p>De manera similar, un Científico de Datos puede estar enfocado únicamente en consultas SQL y paneles para una empresa. Esta variación en los roles a menudo depende de la madurez de los datos de la empresa, organización o proyecto.</p>
+<p> </p>
+<h2>&gt; cat body.txt</h2>
+<h3>¿Qué es un Arquitecto de Datos?</h3>
+<p>Si buscas en línea, en libros o preguntas a alguien con experiencia en datos, puedes encontrar diferentes definiciones de lo que es un arquitecto de datos.</p>
+<p>Según el libro <em>Deciphering Data Architectures</em> de James Serra:</p>
+<blockquote>
+<p>Son quienes diseñan la estructura de alto nivel de la arquitectura de datos (MDW, Data Fabric o Data Lakehouse) y deciden qué tecnologías y políticas de gobernanza de datos debe utilizar el proyecto.</p>
+</blockquote>
+<p>Según <em>TOGAF:</em></p>
+<blockquote>
+<p>Son responsables de describir la estructura e interacción de los principales tipos y fuentes de datos, activos de datos lógicos, activos de datos físicos y recursos de gestión de datos de la empresa.</p>
+</blockquote>
+<p>Según <em>DAMA DMBOK:</em></p>
+<blockquote>
+<p>Identifican las necesidades de datos de la empresa (independientemente de la estructura) y diseñan y mantienen planes maestros para guiar la integración de datos, controlar los activos de datos y alinear las inversiones en datos con la estrategia empresarial.</p>
+</blockquote>
+<p>Según el libro <em>Fundamentals of Data Engineering</em> de Joe Ries &amp; Matt Housley:</p>
+<blockquote>
+<p>Funcionan como un nivel de abstracción respecto a los ingenieros de datos. Los arquitectos de datos diseñan el modelo para la gestión organizacional de los datos, mapeando procesos y la arquitectura general de datos y sistemas. También sirven como un puente entre los aspectos técnicos y no técnicos de una organización.</p>
+</blockquote>
+<p>También tienen otra definición:</p>
+<blockquote>
+<p>Son aquellos que diseñan sistemas para apoyar las cambiantes necesidades de datos de una empresa, logradas a través de decisiones flexibles y reversibles alcanzadas mediante una cuidadosa evaluación de compensaciones.
+ </p>
+</blockquote>
+<p>Ahora, ¿qué definición se debe elegir? Resumiendo todas estas definiciones, se podría encapsular de la siguiente manera:</p>
+<ul>
+<li>Diseñan la estructura general de cómo se almacenan, organizan y utilizan los datos.</li>
+<li>Deciden qué tecnologías se utilizarán para gestionar los datos.</li>
+<li>Crean reglas y políticas para garantizar que los datos sean de alta calidad y confiables.</li>
+<li>Aseguran que los sistemas de datos sean flexibles y puedan adaptarse a las cambiantes necesidades de la empresa.</li>
+</ul>
+<p>Funcionan como diseñadores, desarrollando los sistemas necesarios para todo el ciclo de vida de los datos, de modo que las empresas puedan maximizar y potenciar el valor de sus datos.</p>
+<p>Un arquitecto de datos analiza los pros y los contras, diseña con agilidad y agrega valor al negocio.</p>
+<p> </p>
+<h3>¿Qué NO es un Arquitecto de Datos?</h3>
+<p>Cualquier cosa relacionada tanto con la estrategia como con las tácticas puede considerarse parte de la Arquitectura de Datos.</p>
+<p>La estrategia implica las preguntas <strong>qué, por qué y cuándo</strong>, mientras que las táctica involucra la pregunta <strong>cómo</strong>.</p>
+<p>Supongamos que alguien de tu empresa se acerca a ti y expresa la necesidad de integrar información de diversas fuentes para poder utilizar los datos.</p>
+<p>Como arquitecto de datos, debes comenzar investigando con qué exactamente están tratando, entendiendo por qué quieren esta integración y utilización de datos, y determinando cuándo necesitan este tipo de solución.</p>
+<p>Estas no son las únicas preguntas que un arquitecto de datos formula, pero el punto que quiero enfatizar es que no debes simplemente decir: <em>&quot;Tenemos las herramientas X, Y y Z para extraer y analizar datos,&quot;</em> ya que esto puede tener consecuencias negativas en el diseño de la solución.</p>
+<p>Además de la estrategia y las tácticas, los arquitectos de datos deben considerar tres aspectos principales al desarrollar una nueva arquitectura de datos:</p>
+<ul>
+<li>Completitud</li>
+<li>Precisión</li>
+<li>Consistencia</li>
+</ul>
+<p>A menudo, los interesados pueden no tener una comprensión clara de lo que están tratando, por lo que es esencial estar presente al definir esos requisitos funcionales.</p>
+<p>En mi opinión, es un arte; a veces, los interesados pueden saber solo que necesitan integrar y utilizar datos, lo cual puede ser un buen punto de partida.</p>
+<h3>¿Pero estas tareas suelen ser realizadas por un Ingeniero de Datos, o no?</h3>
+<p>Es cierto que un ingeniero de datos es capaz de manejar todas estas tareas, pero como se mencionó anteriormente, los arquitectos de datos operan a un nivel más alto de abstracción.</p>
+<p>Además, aunque no soy un experto en construcción, entiendo que un ingeniero civil podría cumplir con las funciones de un arquitecto. Entonces, ¿por qué existen los arquitectos?</p>
+<p>Porque los arquitectos se enfocan en la estrategia y las tácticas, mientras que los ingenieros dan vida a los diseños.</p>
+<p> </p>
+<p>Un ingeniero de datos tiene la tarea de crear, probar y mantener la arquitectura de datos. Escribe scripts para extraer, cargar y transformar datos de diversas fuentes para crear una solución de datos, trabajando en estrecha colaboración con un arquitecto de datos para implementar la arquitectura planificada.</p>
+<p>Si bien un ingeniero puede realizar trabajos de arquitectura, es importante definir sus limitaciones, objetivos, tareas y alcance. Esto es crucial porque es posible que hayas encontrado situaciones en tu lugar de trabajo donde un ingeniero asume más responsabilidades de las necesarias.</p>
+<p>Ahora, de todos estos roles, ¿has observado alguna posición donde las tareas se hayan combinado?</p>
+<ul>
+<li>Data Analyst</li>
+<li>Data Scientist</li>
+<li>Business Intelligence Analyst</li>
+<li>Data Engineer</li>
+<li>Database Administrator</li>
+<li>Data Architect</li>
+<li>Data Steward</li>
+<li>Product Owner</li>
+</ul>
+<p>No es raro que los roles se mezclen, pero es esencial recordar que un rol relacionado con los datos puede abarcar múltiples responsabilidades.</p>
+<h3>Su Rol en el ciclo de vida de Ingenieria de Datos</h3>
+<p>Entender el ciclo de vida de la ingeniería de datos es importante debido a su impacto en cada etapa de un proyecto, lo que en última instancia entrega valor empresarial a los interesados.</p>
+<ul>
+<li>Generación</li>
+<li>Almacenamiento</li>
+<li>Ingestión</li>
+<li>Transformación</li>
+<li>Visualización o Entrega</li>
+</ul>
+<p>Los datos tienen valor en cada fase de este ciclo, y los datos que no son consumidos o consultados pueden representar un riesgo para cualquier negocio.</p>
+<p>Muchas empresas, en su búsqueda de proyectos ambiciosos en la era del big data, han recopilado cantidades masivas de datos que, en última instancia, no se utilizaron.</p>
+<p>Los proyectos deben ser intencionales a lo largo de todo el ciclo de vida, tanto en ingeniería como en datos.</p>
+<p>Un ingeniero de datos es responsable de extraer información de manera oportuna, siguiendo los protocolos adecuados de seguridad e integración, y cualquier otra tarea necesaria.</p>
+<h3>¿Pero el trabajo de un Ingeniero de Datos termina aquí?</h3>
+<p>Eso es lo que quiero que entiendas y a lo que me refiero: un arquitecto de datos debe evaluar, diseñar, organizar y ver el valor en las fases del proyecto. Un ingeniero de datos podría realizar todas estas tareas, pero no es su trabajo principal.</p>
+<p>Por ejemplo, imaginemos que vas a un hospital y te encuentras con un médico. Probablemente sepas con certeza que el médico va a:</p>
+<ul>
+<li>Examinar tu condición</li>
+<li>Hacer un diagnóstico</li>
+<li>Prescribir medicación</li>
+</ul>
+<p>Y seguramente no va a:</p>
+<ul>
+<li>Limpiar el hospital</li>
+<li>Fabricar la medicación</li>
+<li>Gestionar la administración del hospital</li>
+</ul>
+<p> </p>
+<p><strong>¿Pero qué pasa con los ingenieros de datos? ¿Las expectativas son poco claras? Lo que ocurre es que ellos pueden:</strong></p>
+<ul>
+<li>Diseñar el modelo de datos de un Data Warehouse</li>
+<li>Gestionar bases de datos de aplicaciones</li>
+<li>Crear un pipeline de datos para Machine Learning</li>
+<li>Administrar toda la infraestructura de big data e instalación de software</li>
+<li>Analizar big data para transformar datos en bruto en información significativa</li>
+</ul>
+<p>Como mencioné anteriormente, si las empresas fueran más maduras en términos de datos, entonces habría límites mejor definidos.</p>
+<p>Al final del día, también depende de cómo las herramientas en lo que se conoce como &quot;red de datos moderna&quot; aumenten con la creciente complejidad de los datos.</p>
+<h3>¿Qué es lo que debería de hacer un Ingeniero de Datos?</h3>
+<p>Creo que deberían tener un amplio entendimiento de todo el ciclo de vida de los datos, distinguiendo entre habilidades esenciales, beneficiosas u opcionales.</p>
+<p>Sin embargo, lo que se considera esencial en una empresa puede verse como opcional en otra. En última instancia, depende de las operaciones específicas y las necesidades del negocio y sus clientes.</p>
+<h3>Desafíos Comunes de Datos</h3>
+<p>Si la madurez de los datos es baja, puedes encontrar:</p>
+<ul>
+<li>Silos de datos</li>
+<li>Infraestructura inadecuada</li>
+<li>Resistencia cultural</li>
+<li>Vulnerabilidades de seguridad</li>
+</ul>
+<p>Por otro lado, si la madurez de los datos es alta, puedes enfrentar:</p>
+<ul>
+<li>Problemas de gobernanza y gestión de datos</li>
+<li>Innovación con tecnologías emergentes</li>
+<li>Desarrollo y mantenimiento de análisis avanzados</li>
+</ul>
+<p>En ambos escenarios, puede haber una variedad de desafíos, pero es importante reconocer que muchos datos no se están utilizando de manera efectiva. Esto podría deberse a un mal diseño de la arquitectura de datos, gobernanza o gestión de datos inadecuadas, o a una mala calidad de los datos desde su creación.</p>
+<h2>&gt; cat outro.txt</h2>
+<p>Un Arquitecto de Datos desempeña un papel crucial en la configuración del paisaje de datos de una organización. Son responsables de crear arquitecturas de datos robustas que aseguren la accesibilidad, confiabilidad y seguridad de los datos.</p>
+<p>Abordando tanto aspectos estratégicos como tácticos, los Arquitectos de Datos cierran la brecha entre los requisitos funcionales y los requisitos técnicos.</p>
+<p>Su capacidad para evaluar compensaciones y desarrollar sistemas adaptables es esencial para satisfacer las necesidades de datos.</p>
+<p>Por último, los Arquitectos de Datos empoderan a las organizaciones para utilizar eficazmente sus recursos de datos, impulsando el valor empresarial y la innovación.</p>
+<p> </p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"Sin estrategia de datos hay deuda de datos"</span> <span class="token operator">></span> /dev/stdout</code></pre>
+
+  </div>
+  
+  <div class="post-navigation">
+    <a href="/">> cd ..</a>
+  </div>
+</article>
+
+      </div>
+      
+      <div class="terminal-footer">
+        <p>© 2025 VALDEZDATA - Built with <a href="https://www.11ty.dev/">11ty</a> and 💙</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/terminal.js"></script>
+</body>
+</html>

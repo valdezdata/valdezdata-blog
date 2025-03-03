@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Construyendo Data Pipelines Resilientes con Airflow | VALDEZDATA</title>
-  <link rel="stylesheet" href="/valdezdata-blog/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/prism-tokyo-night.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="VALDEZDATA Blog">
 </head>
 <body>
   <div class="terminal">
@@ -22,7 +24,7 @@
     
     <div class="terminal-content">
       <div class="ascii-header">
-        <a href="/valdezdata-blog/" class="ascii-link">
+        <a href="/" class="ascii-link">
         <pre>
 ██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
 ██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
@@ -45,10 +47,11 @@
       
       <nav class="terminal-nav">
         <ul>
-          <li><a href="/valdezdata-blog/">> home</a></li>
-          <li><a href="/valdezdata-blog/whoami/">> whoami</a></li>
-          <li><a href="/valdezdata-blog/usos/">> Usos</a></li>
-          <li><a href="/valdezdata-blog/tags/">> tags</a></li>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> Usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+          <li><a href="/feed.xml">> RSS</a></li>
         </ul>
       </nav>
       
@@ -63,15 +66,15 @@
       • 
       
         
-          <a href="/valdezdata-blog/tags/data-engineering/" class="tag">data-engineering</a> 
+          <a href="/tags/data-engineering/" class="tag">data-engineering</a> 
         
       
         
-          <a href="/valdezdata-blog/tags/airflow/" class="tag">airflow</a> 
+          <a href="/tags/airflow/" class="tag">airflow</a> 
         
       
         
-          <a href="/valdezdata-blog/tags/python/" class="tag">python</a>
+          <a href="/tags/python/" class="tag">python</a>
         
       
     
@@ -82,59 +85,54 @@
 <p>En el mundo de la ingeniería de datos, la resiliencia no es negociable. Los pipelines de datos deben funcionar de manera confiable, incluso cuando ocurren fallos inevitables. Apache Airflow se ha convertido en una herramienta estándar para orquestar pipelines complejos, pero construir flujos verdaderamente resilientes requiere más que simplemente definir DAGs.</p>
 <h2>El Problema de los Pipelines Frágiles</h2>
 <p>Muchos pipelines de datos fallan por razones predecibles:</p>
-<pre><code class="language-python"># ❌ Pipeline frágil sin manejo de errores
-def extract_data():
-    # Si la API falla, todo el pipeline falla
-    response = requests.get('https://api.example.com/data')
-    response.raise_for_status()
-    return response.json()
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># ❌ Pipeline frágil sin manejo de errores</span>
+<span class="token keyword">def</span> <span class="token function">extract_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Si la API falla, todo el pipeline falla</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://api.example.com/data'</span><span class="token punctuation">)</span>
+    response<span class="token punctuation">.</span>raise_for_status<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h2>Implementando Retries Inteligentes</h2>
 <p>Airflow permite implementar retries a nivel de tarea:</p>
-<pre><code class="language-python"># ✅ Tarea con retries configurados
-extract_task = PythonOperator(
-    task_id='extract_data',
-    python_callable=extract_data,
-    retries=3,
-    retry_delay=timedelta(minutes=5),
-    retry_exponential_backoff=True,
-    dag=dag
-)
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># ✅ Tarea con retries configurados</span>
+extract_task <span class="token operator">=</span> PythonOperator<span class="token punctuation">(</span>
+    task_id<span class="token operator">=</span><span class="token string">'extract_data'</span><span class="token punctuation">,</span>
+    python_callable<span class="token operator">=</span>extract_data<span class="token punctuation">,</span>
+    retries<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+    retry_delay<span class="token operator">=</span>timedelta<span class="token punctuation">(</span>minutes<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    retry_exponential_backoff<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    dag<span class="token operator">=</span>dag
+<span class="token punctuation">)</span></code></pre>
 <h2>Estrategias de Idempotencia</h2>
 <p>Una clave para la resiliencia es la idempotencia - la capacidad de ejecutar un proceso múltiples veces sin efectos secundarios:</p>
-<pre><code class="language-python"># ✅ Función idempotente
-def load_to_warehouse(data, execution_date):
-    # Usar una clave temporal para garantizar idempotencia
-    date_key = execution_date.strftime('%Y-%m-%d')
+<pre class="language-python"><code class="language-python"><span class="token comment"># ✅ Función idempotente</span>
+<span class="token keyword">def</span> <span class="token function">load_to_warehouse</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> execution_date<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Usar una clave temporal para garantizar idempotencia</span>
+    date_key <span class="token operator">=</span> execution_date<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y-%m-%d'</span><span class="token punctuation">)</span>
 
-    # Primero eliminar registros existentes de este período
-    warehouse.delete_where(date=date_key)
+    <span class="token comment"># Primero eliminar registros existentes de este período</span>
+    warehouse<span class="token punctuation">.</span>delete_where<span class="token punctuation">(</span>date<span class="token operator">=</span>date_key<span class="token punctuation">)</span>
 
-    # Luego insertar los nuevos datos
-    warehouse.insert(data, date=date_key)
-</code></pre>
+    <span class="token comment"># Luego insertar los nuevos datos</span>
+    warehouse<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>data<span class="token punctuation">,</span> date<span class="token operator">=</span>date_key<span class="token punctuation">)</span></code></pre>
 <h2>Monitoreo y Alertas</h2>
 <p>La resiliencia también requiere visibilidad. Configurar alertas efectivas es crucial:</p>
-<pre><code class="language-python"># Configuración de alertas en Airflow
-default_args = {
-    'owner': 'data_team',
-    'depends_on_past': False,
-    'email': ['alerts@company.com'],
-    'email_on_failure': True,
-    'email_on_retry': False,
-}
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># Configuración de alertas en Airflow</span>
+default_args <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'owner'</span><span class="token punctuation">:</span> <span class="token string">'data_team'</span><span class="token punctuation">,</span>
+    <span class="token string">'depends_on_past'</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token string">'email'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'alerts@company.com'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'email_on_failure'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+    <span class="token string">'email_on_retry'</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 <h2>Conclusión</h2>
 <p>Construir pipelines resilientes con Airflow es un equilibrio entre anticipar fallos, implementar retries inteligentes, garantizar idempotencia y mantener una buena visibilidad del sistema. Estas prácticas no solo evitan llamadas de emergencia a media noche, sino que también aseguran la integridad y disponibilidad de los datos en toda la organización.</p>
 <p>En próximos posts, exploraremos patrones avanzados de Airflow como los sensores dinámicos y estrategias para manejar dependencias externas.</p>
-<pre><code class="language-bash">echo &quot;Happy data engineering!&quot; &gt; /dev/stdout
-</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"Happy data engineering!"</span> <span class="token operator">></span> /dev/stdout</code></pre>
 
   </div>
   
   <div class="post-navigation">
-    <a href="/valdezdata-blog/">> cd ..</a>
+    <a href="/">> cd ..</a>
   </div>
 </article>
 
@@ -146,6 +144,6 @@ default_args = {
     </div>
   </div>
   
-  <script src="/valdezdata-blog/js/terminal.js"></script>
+  <script src="/js/terminal.js"></script>
 </body>
 </html>

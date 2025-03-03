@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usos | VALDEZDATA</title>
-  <link rel="stylesheet" href="/valdezdata-blog/css/style.css">
+  <title>usos | VALDEZDATA</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/prism-tokyo-night.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="VALDEZDATA Blog">
 </head>
 <body>
   <div class="terminal">
@@ -22,7 +24,7 @@
     
     <div class="terminal-content">
       <div class="ascii-header">
-        <a href="/valdezdata-blog/" class="ascii-link">
+        <a href="/" class="ascii-link">
         <pre>
 ██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
 ██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
@@ -45,77 +47,45 @@
       
       <nav class="terminal-nav">
         <ul>
-          <li><a href="/valdezdata-blog/">> home</a></li>
-          <li><a href="/valdezdata-blog/whoami/">> whoami</a></li>
-          <li><a href="/valdezdata-blog/usos/">> Usos</a></li>
-          <li><a href="/valdezdata-blog/tags/">> tags</a></li>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+          <li><a href="/feed.xml">> rss</a></li>
         </ul>
       </nav>
       
       <div class="content">
-        <h1>&gt; cat usos.txt</h1>
-<p>Esta página detalla las herramientas, tecnologías y configuraciones que uso diariamente para mi trabajo con datos.</p>
-<h2>Hardware</h2>
-<pre><code>$ system_profiler
-  
-MacBook Pro (2021, M1 Pro)
-RAM: 32GB
-Storage: 1TB SSD
-Monitors: 2 x Dell UltraSharp 27&quot;
-</code></pre>
-<h2>Software para Ingeniería de Datos</h2>
-<pre><code>$ dpkg --list | grep data-tools
-
-- dbt (data build tool)
-- Apache Airflow
-- Apache Spark
-- Snowflake
-- Kafka
-- Metabase
-- Terraform
-- Docker + Kubernetes
-</code></pre>
-<h2>Editor y Terminal</h2>
-<pre><code>$ echo $EDITOR
-VS Code con Tokyo Night Theme
-
-$ echo $SHELL
-zsh + Oh My Zsh + Starship prompt
-Terminal: iTerm2
-</code></pre>
-<h2>Lenguajes y Frameworks</h2>
-<pre><code>$ ls -la ~/languages/
-  
-Python/
-├── pandas
-├── pyspark
-├── scikit-learn
-├── tensorflow
-├── fastapi
-└── pytest
-
-SQL/
-Go/
-Rust/ (aprendiendo)
-</code></pre>
-<h2>Cloud</h2>
-<pre><code>$ aws configure list
-AWS, GCP y Azure para diferentes proyectos
-
-Servicios favoritos:
-- AWS Lambda
-- Google BigQuery
-- AWS S3
-- Google Cloud Functions
-- Azure Data Factory
-</code></pre>
-<h2>Productividad</h2>
-<pre><code>$ crontab -l | grep productividad
-Notion para notas y documentación
-Obsidian para conocimiento personal
-Superhuman para email
-Rectangle para gestión de ventanas
-</code></pre>
+        <h2>&gt; cat usos.txt</h2>
+<p>La razón principal por la que estoy haciendo esto es porque esperaba poder saber, durante el proceso de personalizar mi interfaz de usuario, cómo hacerlo lo más atractivo y eficiente posible.</p>
+<p>Como lo comentó Linus Torvalds:</p>
+<blockquote>
+<p><em>&quot;Cualquier programa solo es tan bueno como sea útil. En el verdadero open source, tienes el derecho a controlar tu propio destino.&quot;</em></p>
+</blockquote>
+<p><em>NOTA: Generalmente se actualiza de forma eventual, por lo que NO puede estar al día esta información.</em></p>
+<h2>dpkg --list | grep tools</h2>
+<h3>Lo Básico</h3>
+<ul>
+<li>Para mi sistema operativo, uso <a href="https://archlinux.org/">Arch Linux (btw)</a>.</li>
+<li>Para mi window manager, uso <a href="https://hyprland.org/">Hyprland</a>.</li>
+<li>Para mi terminal, uso <a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/">Kitty</a>.</li>
+<li>Para mi shell, uso <a href="https://www.zsh.org/">Zsh</a>.</li>
+</ul>
+<h3>Aplicaciones</h3>
+<ul>
+<li>Para mi launcher, uso <a href="https://davatorium.github.io/rofi/">Rofi</a></li>
+<li>Para mi editor, uso <a href="https://neovim.io/">NeoVim</a></li>
+<li>Para mi file manager, uso <a href="https://yazi-rs.github.io/">Yazi</a></li>
+<li>Para mi terminal multiplexer, uso <a href="https://github.com/tmux/tmux/wiki/">Tmux</a></li>
+</ul>
+<h3>Theme</h3>
+<ul>
+<li>Para mi theme, generalmente uso <a href="https://github.com/folke/tokyonight.nvim">tokyonight</a></li>
+<li>Para mi terminal font, uso <a href="https://www.nerdfonts.com/">JetBrains Mono</a></li>
+<li>Para mi shell prompt, uso <a href="https://ohmyposh.dev/">oh-my-posh</a></li>
+</ul>
+<p> </p>
+<p>Si deseas ver más de mis dotfiles, <a href="https://github.com/valdezdata/dotfiles">haz click aquí</a></p>
 
       </div>
       
@@ -125,6 +95,6 @@ Rectangle para gestión de ventanas
     </div>
   </div>
   
-  <script src="/valdezdata-blog/js/terminal.js"></script>
+  <script src="/js/terminal.js"></script>
 </body>
 </html>

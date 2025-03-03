@@ -1,4 +1,13 @@
+/* const pluginRss = require("@11ty/eleventy-plugin-rss"); */
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 module.exports = function (eleventyConfig) {
+  // Add RSS
+  /* eleventyConfig.addPlugin(pluginRss); */
+
+  // Add syntax highlighting plugin
+  eleventyConfig.addPlugin(syntaxHighlight);
+
   // Pass through copy for CSS and other assets
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
@@ -50,14 +59,12 @@ module.exports = function (eleventyConfig) {
     return [...tagSet].sort();
   });
 
-  // GitHub Pages path prefix configuration
-  /* let pathPrefix = "/valdezdata-blog"; */
-  // if (process.env.GITHUB_REPOSITORY) {
-  //   pathPrefix = process.env.GITHUB_REPOSITORY.split("/")[1];
-  // }
+  // For production, use pathPrefix
+  const pathPrefix =
+    process.env.ELEVENTY_ENV === "production" ? "/valdezdata-blog" : "/";
 
   return {
-    pathPrefix: "/valdezdata-blog",
+    pathPrefix: pathPrefix,
     dir: {
       input: ".",
       output: "_site",

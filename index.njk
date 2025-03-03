@@ -3,10 +3,10 @@ layout: base.njk
 title: Home
 ---
 
+<h2 class="command-prompt">> ls -la blog/</h2>
+
 <div class="post-list">
   {% if collections.posts.length > 0 %}
-    <h2 class="command-prompt">> ls -la blog/</h2>
-    
     {% for post in collections.posts %}
       <article class="post-item">
         <h2 class="post-title">

@@ -1,0 +1,10 @@
+{
+  "title": "VALDEZDATA Blog",
+  "url": "https://valdezdata.github.io/valdezdata-blog",
+  "language": "es",
+  "description": "Un blog sobre ingeniería de datos, MLOps, y infraestructura de datos",
+  "author": {
+    "name": "VALDEZDATA",
+    "email": "valdezdata@tuta.io"
+  }
+}

@@ -1,87 +1,40 @@
 ---
 layout: base.njk
-title: Usos
+title: usos
 ---
 
-# > cat usos.txt
+## > cat usos.txt
 
-Esta página detalla las herramientas, tecnologías y configuraciones que uso diariamente para mi trabajo con datos.
+La razón principal por la que estoy haciendo esto es porque esperaba poder saber, durante el proceso de personalizar mi interfaz de usuario, cómo hacerlo lo más atractivo y eficiente posible.
 
-## Hardware
+Como lo comentó Linus Torvalds:
 
-```
-$ system_profiler
-  
-MacBook Pro (2021, M1 Pro)
-RAM: 32GB
-Storage: 1TB SSD
-Monitors: 2 x Dell UltraSharp 27"
-```
+> _"Cualquier programa solo es tan bueno como sea útil. En el verdadero open source, tienes el derecho a controlar tu propio destino."_
 
-## Software para Ingeniería de Datos
+_NOTA: Generalmente se actualiza de forma eventual, por lo que NO puede estar al día esta información._
 
-```
-$ dpkg --list | grep data-tools
+## dpkg --list | grep tools
 
-- dbt (data build tool)
-- Apache Airflow
-- Apache Spark
-- Snowflake
-- Kafka
-- Metabase
-- Terraform
-- Docker + Kubernetes
-```
+### Lo Básico
 
-## Editor y Terminal
+- Para mi sistema operativo, uso [Arch Linux (btw)](https://archlinux.org/).
+- Para mi window manager, uso [Hyprland](https://hyprland.org/).
+- Para mi terminal, uso [Kitty](https://sw.kovidgoyal.net/kitty/graphics-protocol/).
+- Para mi shell, uso [Zsh](https://www.zsh.org/).
 
-```
-$ echo $EDITOR
-VS Code con Tokyo Night Theme
+### Aplicaciones
 
-$ echo $SHELL
-zsh + Oh My Zsh + Starship prompt
-Terminal: iTerm2
-```
+- Para mi launcher, uso [Rofi](https://davatorium.github.io/rofi/)
+- Para mi editor, uso [NeoVim](https://neovim.io/)
+- Para mi file manager, uso [Yazi](https://yazi-rs.github.io/)
+- Para mi terminal multiplexer, uso [Tmux](https://github.com/tmux/tmux/wiki/)
 
-## Lenguajes y Frameworks
+### Theme
 
-```
-$ ls -la ~/languages/
-  
-Python/
-├── pandas
-├── pyspark
-├── scikit-learn
-├── tensorflow
-├── fastapi
-└── pytest
+- Para mi theme, generalmente uso [tokyonight](https://github.com/folke/tokyonight.nvim)
+- Para mi terminal font, uso [JetBrains Mono](https://www.nerdfonts.com/)
+- Para mi shell prompt, uso [oh-my-posh](https://ohmyposh.dev/)
 
-SQL/
-Go/
-Rust/ (aprendiendo)
-```
+&nbsp;
 
-## Cloud
-
-```
-$ aws configure list
-AWS, GCP y Azure para diferentes proyectos
-
-Servicios favoritos:
-- AWS Lambda
-- Google BigQuery
-- AWS S3
-- Google Cloud Functions
-- Azure Data Factory
-```
-
-## Productividad
-
-```
-$ crontab -l | grep productividad
-Notion para notas y documentación
-Obsidian para conocimiento personal
-Superhuman para email
-Rectangle para gestión de ventanas
-```
+Si deseas ver más de mis dotfiles, [haz click aquí](https://github.com/valdezdata/dotfiles)

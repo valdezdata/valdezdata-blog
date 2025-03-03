@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} | VALDEZDATA</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/prism-tokyo-night.css' | url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="alternate" href="{{ '/feed.xml' | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 </head>
 <body>
   <div class="terminal">
@@ -47,8 +49,9 @@
         <ul>
           <li><a href="{{ '/' | url }}">> home</a></li>
           <li><a href="{{ '/whoami/' | url }}">> whoami</a></li>
-          <li><a href="{{ '/usos/' | url }}">> Usos</a></li>
+          <li><a href="{{ '/usos/' | url }}">> usos</a></li>
           <li><a href="{{ '/tags/' | url }}">> tags</a></li>
+          <li><a href="{{ '/feed.xml' | url }}">> rss</a></li>
         </ul>
       </nav>
       

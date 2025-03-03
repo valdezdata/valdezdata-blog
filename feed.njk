@@ -1,0 +1,24 @@
+---
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>VALDEZDATA Blog</title>
+  <subtitle>Desbloqueando el potencial de los datos</subtitle>
+  <link href="https://valdezdata.github.io/valdezdata-blog/feed.xml" rel="self"/>
+  <link href="https://valdezdata.github.io/valdezdata-blog/"/>
+  <updated>{{ "now" | date }}</updated>
+  <id>https://valdezdata.github.io/valdezdata-blog/</id>
+  <author>
+    <name>VALDEZDATA</name>
+  </author>
+  {%- for post in collections.posts | reverse %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://valdezdata.github.io/valdezdata-blog{{ post.url }}"/>
+    <updated>{{ post.date | date }}</updated>
+    <id>https://valdezdata.github.io/valdezdata-blog{{ post.url }}</id>
+    <content type="html"><![CDATA[{{ post.templateContent | safe }}]]></content>
+  </entry>
+  {%- endfor %}
+</feed>
