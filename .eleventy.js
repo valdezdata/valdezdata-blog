@@ -60,10 +60,7 @@ module.exports = function (eleventyConfig) {
     return [...tagSet].sort();
   });
 
-  // If using a custom domain, no pathPrefix is needed
-  // If using GitHub Pages with repo name, pathPrefix is needed
-  const isCustomDomain = process.env.ELEVENTY_CUSTOM_DOMAIN === "true";
-  const pathPrefix = isCustomDomain ? "/" : "/valdezdata-blog";
+  let pathPrefix = "/";
 
   return {
     pathPrefix: pathPrefix,
