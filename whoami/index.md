@@ -6,7 +6,7 @@ title: whoami
 ## > whoami
 
 ```
-- User: valdezdata
+- User: Omar Valdez
  - Role: Data Architect
  - Location: /home/valdezdata
 ```
@@ -60,7 +60,6 @@ Mi misión es desbloquear el potencial de los datos para impulsar decisiones bas
 Para proyectos, colaboraciones o simplemente conversar sobre datos:
 
 - Email: [valdezdata@tuta.io](mailto:valdezdata@tuta.io)
-- LinkedIn: [valdezdata](https://linkedin.com/in/valdezdata)
 
 ```bash
 echo "Te agradezco por leer mi blog" > /dev/stdout

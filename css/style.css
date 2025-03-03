@@ -18,6 +18,11 @@
   box-sizing: border-box;
 }
 
+h2 {
+  color: var(--success-color) !important;
+  /* Other important properties */
+}
+
 body {
   font-family: "JetBrains Mono", monospace;
   background-color: #16161e;
