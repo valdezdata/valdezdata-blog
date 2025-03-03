@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>whoami | VALDEZDATA</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+      </div>
+      <div class="terminal-title">valdezdata@blog:~</div>
+    </div>
+    
+    <div class="terminal-content">
+      <div class="ascii-header">
+        <a href="/" class="ascii-link">
+        <pre>
+██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
+██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
+██║   ██║███████║██║     ██║  ██║█████╗    ███╔╝ ██║  ██║███████║   ██║   ███████║
+╚██╗ ██╔╝██╔══██║██║     ██║  ██║██╔══╝   ███╔╝  ██║  ██║██╔══██║   ██║   ██╔══██║
+ ╚████╔╝ ██║  ██║███████╗██████╔╝███████╗███████╗██████╔╝██║  ██║   ██║   ██║  ██║
+  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+        </pre>
+        </a>
+      </div>
+      
+      <div class="typing-container">
+        <div class="typing-text" id="typing-text"></div>
+        <div class="cursor"></div>
+      </div>
+      
+      <div class="tags-container" id="tags-container">
+        <!-- Tags will be added dynamically by JavaScript -->
+      </div>
+      
+      <nav class="terminal-nav">
+        <ul>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> Usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+        </ul>
+      </nav>
+      
+      <div class="content">
+        <h1>&gt; whoami</h1>
+<pre><code>User: valdezdata
+Role: Data Engineer / Data Scientist
+Location: /home/valdezdata
+</code></pre>
+<h2>&gt; cat about.txt</h2>
+<p>Soy un profesional apasionado por los datos y la tecnología, especializado en crear infraestructuras de datos robustas, escalables y seguras.</p>
+<p>Mi misión es desbloquear el potencial de los datos para impulsar decisiones basadas en evidencia y crear soluciones innovadoras que transformen la forma en que las organizaciones aprovechan sus activos de información.</p>
+<h2>&gt; ls -la skills/</h2>
+<pre><code>drwxr-xr-x  data-engineering/
+drwxr-xr-x  cloud-infrastructure/
+drwxr-xr-x  machine-learning/
+drwxr-xr-x  data-privacy/
+-rw-r--r--  python.py
+-rw-r--r--  sql.sql
+-rw-r--r--  docker-compose.yml
+-rw-r--r--  terraform.tf
+</code></pre>
+<h2>&gt; cat contact.txt</h2>
+<p>Para proyectos, colaboraciones o simplemente conversar sobre datos:</p>
+<ul>
+<li>Email: <a href="mailto:correo@valdezdata.com">correo@valdezdata.com</a></li>
+<li>LinkedIn: <a href="https://linkedin.com/in/valdezdata">valdezdata</a></li>
+<li>GitHub: <a href="https://github.com/valdezdata">valdezdata</a></li>
+</ul>
+<pre><code class="language-bash">echo &quot;¡Gracias por visitar!&quot; &gt; /dev/stdout
+</code></pre>
+
+      </div>
+      
+      <div class="terminal-footer">
+        <p>© 2025 VALDEZDATA - Built with <a href="https://www.11ty.dev/">11ty</a> and 💙</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/terminal.js"></script>
+</body>
+</html>
