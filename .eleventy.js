@@ -12,6 +12,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("CNAME");
 
   // Add a date filter
   eleventyConfig.addFilter("dateFormat", function (date) {
@@ -59,9 +60,10 @@ module.exports = function (eleventyConfig) {
     return [...tagSet].sort();
   });
 
-  // For production, use pathPrefix
-  const pathPrefix =
-    process.env.ELEVENTY_ENV === "production" ? "/valdezdata-blog" : "/";
+  // If using a custom domain, no pathPrefix is needed
+  // If using GitHub Pages with repo name, pathPrefix is needed
+  const isCustomDomain = process.env.ELEVENTY_CUSTOM_DOMAIN === "true";
+  const pathPrefix = isCustomDomain ? "/" : "/valdezdata-blog";
 
   return {
     pathPrefix: pathPrefix,

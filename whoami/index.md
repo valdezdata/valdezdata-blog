@@ -51,7 +51,6 @@ Mi misión es desbloquear el potencial de los datos para impulsar decisiones bas
 
 ```
 * drwxr-xr-x  https://github.com/valdezdata/
- * -rw-r--r--  https://medium.com/@valdezdata
  * -rw-r--r--  https://youtube.com/@valdezdata
 ```
 
@@ -62,5 +61,5 @@ Para proyectos, colaboraciones o simplemente conversar sobre datos:
 - Email: [valdezdata@tuta.io](mailto:valdezdata@tuta.io)
 
 ```bash
-echo "Te agradezco por leer mi blog" > /dev/stdout
+echo "Te agradezco por leer esta sección" > /dev/stdout
 ```
