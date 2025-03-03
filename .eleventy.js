@@ -51,13 +51,13 @@ module.exports = function (eleventyConfig) {
   });
 
   // GitHub Pages path prefix configuration
-  let pathPrefix = "/valdezdata-blog";
+  /* let pathPrefix = "/valdezdata-blog"; */
   // if (process.env.GITHUB_REPOSITORY) {
   //   pathPrefix = process.env.GITHUB_REPOSITORY.split("/")[1];
   // }
 
   return {
-    pathPrefix: pathPrefix,
+    /* pathPrefix: pathPrefix, */
     dir: {
       input: ".",
       output: "_site",
