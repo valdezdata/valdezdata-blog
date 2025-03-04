@@ -95,6 +95,7 @@ body {
   margin-bottom: 30px;
   text-align: center;
   overflow-x: auto;
+  padding: 15px 0;
 }
 
 .ascii-link {
@@ -152,7 +153,7 @@ body {
 }
 
 .terminal-nav {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   border-bottom: 1px solid #24283b;
   padding-bottom: 10px;
 }
@@ -175,7 +176,7 @@ body {
 }
 
 .content {
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 .command-prompt {

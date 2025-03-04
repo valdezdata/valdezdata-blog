@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: Una explicación Sencilla de los Términos de Datos
+title: Listado de Términos de Datos
 date: 2025-02-10
 tags: ["data-management", "data-governance", "data-terminology"]
 excerpt: Una explicación práctica de los términos clave en el mundo de los datos.
