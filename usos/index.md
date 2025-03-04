@@ -3,6 +3,10 @@ layout: base.njk
 title: usos
 ---
 
+<img src="/assets/images/fastfetch.png" alt="Data visualization example" style="max-width: 500px; display: block; margin: 20px auto;" />
+
+&nbsp;
+
 ## > cat usos.txt
 
 La razón principal por la que estoy haciendo esto es porque esperaba poder saber, durante el proceso de personalizar mi interfaz de usuario, cómo hacerlo lo más atractivo y eficiente posible.

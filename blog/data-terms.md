@@ -1,10 +1,16 @@
 ---
 layout: post.njk
-title: Una explicación Sencilla de los Términos de Gestión de datos
+title: Una explicación Sencilla de los Términos de Datos
 date: 2025-02-10
 tags: ["data-management", "data-governance", "data-terminology"]
-excerpt: Una explicación práctica de los términos clave en gestión de datos.
+excerpt: Una explicación práctica de los términos clave en el mundo de los datos.
 ---
+
+&nbsp;
+
+<img src="/assets/images/blog/data-terms/data-terms.jpg" alt="Data Terms" style="max-width: 500px; display: block; margin: 20px auto;" />
+
+&nbsp;
 
 ## > cat intro.txt
 

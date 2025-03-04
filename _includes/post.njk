@@ -21,6 +21,20 @@ layout: base.njk
     {{ content | safe }}
   </div>
   
+  <!-- Comments section -->
+  <div class="post-comments">
+    <h2>Comments</h2>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="35e740db-8caf-4026-ba4a-1658012691e4"
+      data-page-id="{{ page.url }}"
+      data-page-url="{{ metadata.url }}{{ page.url }}"
+      data-page-title="{{ title }}"
+      data-theme="dark"
+    ></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </div>
+  
   <div class="post-navigation">
     <a href="{{ '/' | url }}">> cd ..</a>
   </div>

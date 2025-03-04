@@ -90,9 +90,9 @@ body {
 
 .ascii-header {
   color: var(--accent-color);
-  font-size: 15px; /* Increased size */
+  font-size: 13px;
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   overflow-x: auto;
 }
@@ -142,6 +142,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 50px;
   margin-bottom: 20px;
   font-size: 14px;
 }
@@ -497,5 +498,44 @@ body {
 
   .tag-item {
     padding: 6px 10px;
+  }
+
+  /* Terminal-themed image styling */
+  .terminal-image {
+    border: 1px solid var(--accent-color);
+    padding: 10px;
+    background-color: #24283b;
+    margin: 25px 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .terminal-image::before {
+    content: "$ display image.jpg";
+    display: block;
+    color: var(--prompt-color);
+    font-family: "JetBrains Mono", monospace;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .terminal-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Optional: Different sizes for images */
+  .terminal-image.small img {
+    max-width: 300px;
+  }
+
+  .terminal-image.medium img {
+    max-width: 500px;
+  }
+
+  .terminal-image.large img {
+    max-width: 800px;
   }
 }

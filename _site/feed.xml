@@ -10,11 +10,14 @@
     <name>VALDEZDATA</name>
   </author>
   <entry>
-    <title>Una explicación Sencilla de los Términos de Gestión de datos</title>
+    <title>Una explicación Sencilla de los Términos de Datos</title>
     <link href="https://valdezdata.com/blog/data-terms/"/>
     <updated>2/9/2025</updated>
     <id>https://valdezdata.com/blog/data-terms/</id>
-    <content type="html"><![CDATA[<h2>&gt; cat intro.txt</h2>
+    <content type="html"><![CDATA[<p> </p>
+<img src="/assets/images/blog/data-terms/data-terms.jpg" alt="Data Terms" style="max-width: 500px; display: block; margin: 20px auto;" />
+<p> </p>
+<h2>&gt; cat intro.txt</h2>
 <p>Si alguna vez te has sentido abrumado por términos como Data Lake, Metadata o Data Governance, entonces has llegado al lugar correcto.</p>
 <p>Entiendo que incluso un solo concepto puede tener diferentes interpretaciones, así que mi objetivo no es definir, sino explicar estos términos de manera sencilla con ejemplos o contexto.</p>
 <p>Si crees que falta algún concepto o término, puedes agregar un comentario al final de este artículo o puedes hacermelo saber de la manera que te resulte más conveniente (Correo, mensaje, etc).</p>
@@ -301,7 +304,10 @@ y de los recursos de gestión de datos.</p>
     <link href="https://valdezdata.com/blog/por-que-ser-arquitecto-de-datos/"/>
     <updated>2/10/2025</updated>
     <id>https://valdezdata.com/blog/por-que-ser-arquitecto-de-datos/</id>
-    <content type="html"><![CDATA[<h3>TL;DR</h3>
+    <content type="html"><![CDATA[<p> </p>
+<img src="/assets/images/blog/arq-datos/data-arch.jpg" alt="Data Architect" style="max-width: 500px; display: block; margin: 20px auto;" />
+<p> </p>
+<h3>TL;DR</h3>
 <p>Un Arquitecto de Datos diseña la estructura de almacenamiento, organización y utilización de datos para garantizar la calidad y flexibilidad de los mismos. Se enfoca en la estrategia y tácticas, trabajando en estrecha colaboración con ingenieros de datos para implementar la arquitectura. Comprender el ciclo de vida de la ingeniería de datos y los desafíos comunes es clave para agregar el valor empresarial necesario.</p>
 <h2>&gt; cat intro.txt</h2>
 <p>Hoy en día, es esencial que los datos puedan ser accedidos y reutilizados no solo por profesionales, sino también por usuarios comunes, como aquellos que utilizan redes sociales y tratan de descargar su propia información.</p>
