@@ -1,72 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Clear and hide tags initially
+  // Get the typing text element and container for tags
+  const typingText = document.getElementById("typing-text");
   const tagsContainer = document.getElementById("tags-container");
+
+  // Hide tags container initially
   if (tagsContainer) {
-    tagsContainer.innerHTML = "";
-    tagsContainer.style.display = "flex";
+    tagsContainer.style.display = "none";
   }
 
-  // Array of hashtags
-  const tags = [
-    "#dataengineering",
-    "#datainfra",
-    "#mlops",
-    "#dataintegrity",
-    "#ai",
-    "#dataops",
-    "#security",
-  ];
+  // Define the texts to type
+  const tagline = "Desbloqueando el Potencial de los Datos";
+  const tags =
+    "#dataengineering #datainfra #mlops #dataintegrity #ai #dataops #security";
 
-  // Typing effect for the tagline
-  const typingText = document.getElementById("typing-text");
-  const text = "Desbloqueando el Potencial de los Datos";
+  // Define colors (match your CSS variables)
+  const taglineColor = "var(--prompt-color)"; // Green color
+  const tagsColor = "var(--highlight-color)"; // Orange color
+
+  // Variables for tracking typing state
+  let isTypingTagline = true;
+  let isErasing = false;
   let i = 0;
-  const typingSpeed = 50; // milliseconds per character
+  const typingSpeed = 60; // Regular typing speed
+  const erasingSpeed = 50; // Faster erasing speed
+  const pauseBeforeErase = 1500; // Pause before erasing
+  const pauseBeforeTags = 500; // Pause before typing tags
+
+  // Set initial color
+  typingText.style.color = taglineColor;
 
   function typeWriter() {
-    if (i < text.length) {
-      typingText.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, typingSpeed);
-    } else {
-      // After tagline is typed, start typing hashtags
-      setTimeout(typeHashtags, 500);
-    }
-  }
-
-  // Function to type hashtags one by one
-  let tagIndex = 0;
-  let charIndex = 0;
-
-  function typeHashtags() {
-    if (tagIndex < tags.length) {
-      if (charIndex === 0) {
-        // Create a new span for this tag
-        const tagSpan = document.createElement("span");
-        tagSpan.className = "tag";
-        tagSpan.id = `tag-${tagIndex}`;
-        tagsContainer.appendChild(tagSpan);
-      }
-
-      const currentTag = tags[tagIndex];
-      const tagSpan = document.getElementById(`tag-${tagIndex}`);
-
-      if (charIndex < currentTag.length) {
-        // Type the next character of the current tag
-        tagSpan.textContent += currentTag.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeHashtags, 50);
+    // Typing the tagline
+    if (isTypingTagline && !isErasing) {
+      if (i < tagline.length) {
+        typingText.innerHTML += tagline.charAt(i);
+        i++;
+        setTimeout(typeWriter, typingSpeed);
       } else {
-        // Move to the next tag
-        tagsContainer.appendChild(document.createTextNode(" "));
-        tagIndex++;
-        charIndex = 0;
-        setTimeout(typeHashtags, 200);
+        // Tagline complete, pause before erasing
+        setTimeout(() => {
+          isErasing = true;
+          typeWriter();
+        }, pauseBeforeErase);
       }
+    }
+    // Erasing the tagline
+    else if (isTypingTagline && isErasing) {
+      if (i > 0) {
+        typingText.innerHTML = tagline.substring(0, i - 1);
+        i--;
+        setTimeout(typeWriter, erasingSpeed);
+      } else {
+        // Erased completely, switch to tags
+        isTypingTagline = false;
+        isErasing = false;
+        i = 0;
+        // Change color for hashtags
+        typingText.style.color = tagsColor;
+        setTimeout(typeWriter, pauseBeforeTags);
+      }
+    }
+    // Typing the tags
+    else if (!isTypingTagline && !isErasing) {
+      if (i < tags.length) {
+        typingText.innerHTML += tags.charAt(i);
+        i++;
+        setTimeout(typeWriter, typingSpeed);
+      }
+      // Typing complete, stop
     }
   }
 
-  // Start the typing animation after a short delay
+  // Start the typing animation
   setTimeout(typeWriter, 1000);
 
   // Simulate terminal behavior with links
