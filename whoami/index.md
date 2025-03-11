@@ -47,11 +47,17 @@ Soy un profesional apasionado por los datos y la tecnología, especializado en c
 
 Mi misión es desbloquear el potencial de los datos para impulsar decisiones basadas en evidencia y crear soluciones innovadoras que transformen la forma en que las organizaciones aprovechan sus activos de información.
 
-## > ls -la skills/
+## > ls -la URLs/
 
 ```
 * drwxr-xr-x  https://github.com/valdezdata/
  * -rw-r--r--  https://youtube.com/@valdezdata
+ * -rw-r--r--  https://linkedin.com/in/valdezdata
+ * -rw-r--r--  https://medium.com/@valdezdata
+ * -rw-r--r--  https://discord.com/invite/j3agvnCuF7
+ * -rw-r--r--  https://instagram.com/valdezdatao
+ * -rw-r--r--  https://twitter.com/valdezdata
+ * -rw-r--r--  https://payhip.com/valdezdata
 ```
 
 ## > cat contact.txt
