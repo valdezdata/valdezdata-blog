@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETL y ELT - Cuándo y Por qué Usar Cada Uno? | valdezdata</title>
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- <link rel="stylesheet" href="/css/prism-tokyo-night.css"> -->
+  <link rel="stylesheet" href="/css/prism-tokyo-night.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="valdezdata blog">
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+      </div>
+      <div class="terminal-title">valdezdata@blog:~</div>
+    </div>
+    
+    <div class="terminal-content">
+      <div class="ascii-header">
+        <a href="/" class="ascii-link">
+        <pre>
+██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
+██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
+██║   ██║███████║██║     ██║  ██║█████╗    ███╔╝ ██║  ██║███████║   ██║   ███████║
+╚██╗ ██╔╝██╔══██║██║     ██║  ██║██╔══╝   ███╔╝  ██║  ██║██╔══██║   ██║   ██╔══██║
+ ╚████╔╝ ██║  ██║███████╗██████╔╝███████╗███████╗██████╔╝██║  ██║   ██║   ██║  ██║
+  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+        </pre>
+        </a>
+      </div>
+      
+      <div class="typing-container">
+        <div class="typing-text" id="typing-text"></div>
+        <div class="cursor"></div>
+      </div>
+      
+      <div class="tags-container" id="tags-container">
+        <!-- Tags will be added dynamically by JavaScript -->
+      </div>
+      
+      <nav class="terminal-nav">
+        <ul>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+          <li><a href="https://payhip.com/valdezdata">> shop</a></li>
+          <li><a href="/feed.xml">> rss</a></li>
+          <li><a href="https://withcabin.com/privacy/valdezdata.com">> cabin</a></li>
+        </ul>
+      </nav>
+      
+      <div class="content">
+        
+<article class="post">
+  <h1 class="post-header">ETL y ELT - Cuándo y Por qué Usar Cada Uno?</h1>
+  
+  <div class="post-meta">
+    <time datetime="Mar 10, 2025">Mar 10, 2025</time>
+    
+      • 
+      
+        
+          <a href="/tags/etl/" class="tag">etl</a> 
+        
+      
+        
+          <a href="/tags/elt/" class="tag">elt</a> 
+        
+      
+        
+          <a href="/tags/data-architecture/" class="tag">data-architecture</a> 
+        
+      
+        
+          <a href="/tags/conceptos/" class="tag">conceptos</a> 
+        
+      
+        
+          <a href="/tags/integracion/" class="tag">integracion</a> 
+        
+      
+        
+          <a href="/tags/procesamiento/" class="tag">procesamiento</a> 
+        
+      
+        
+          <a href="/tags/bigdata/" class="tag">bigdata</a> 
+        
+      
+        
+          <a href="/tags/data-warehouse/" class="tag">data-warehouse</a>
+        
+      
+    
+  </div>
+  
+  <div class="post-content">
+    <h3>TL;DR</h3>
+<p>ETL y ELT son metodologías para integrar y procesar datos. En ETL, los datos se extraen, se transforman (limpieza y adaptación) y luego se cargan en un almacén, una metodología útil en entornos con almacenamiento costoso o limitado. En ELT, los datos se extraen, se cargan directamente en el almacén (a menudo en la nube) y luego se transforman según se necesite, ofreciendo mayor flexibilidad para analizar grandes volúmenes de datos sin preprocesarlos. La elección entre ambos depende de las necesidades de transformación, costos de almacenamiento y el entorno tecnológico.</p>
+<h3>Video</h3>
+<p>Si deseas ver video en vez de leer, <a href="https://www.youtube.com/watch?v=3rRU-v8RJZ0">haz click aquí.</a></p>
+<div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3rRU-v8RJZ0" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+<p> </p>
+<h2>&gt; cat intro.txt</h2>
+<p>En la era digital actual, saber cómo procesar y gestionar datos de manera eficiente es crucial. Dos procesos clave de integración de datos que a menudo entran en juego son ETL (Extraer, Transformar, Cargar) y ELT (Extraer, Cargar, Transformar). En este artículo, cubriremos en qué consisten estos procesos, por qué son importantes y cuándo utilizarlos.</p>
+<h2>&gt; cat body.txt</h2>
+<h3>¿Qué es ETL?</h3>
+<p>ETL significa Extraer, Transformar y Cargar. Es una tubería de datos que se utiliza para recolectar datos de diversas fuentes, transformarlos en un formato o estructura adecuado para el análisis, y luego cargarlos en un almacén de datos u otro destino de datos.</p>
+<ol>
+<li>
+<p><strong>Extracción:</strong> Este paso implica reunir toda la información relevante de las fuentes designadas e ingresarla en un área de almacenamiento temporal donde pueda ser procesada.</p>
+</li>
+<li>
+<p><strong>Transformación:</strong> En esta fase, los datos en bruto se limpian y transforman para asegurarse de que estén en el formato correcto para el análisis. Esto puede implicar cambiar tipos de datos, agregar datos o enriquecerlos con información adicional.</p>
+</li>
+<li>
+<p><strong>Carga:</strong> Finalmente, los datos transformados se cargan en el repositorio de datos definitivo, como un almacén de datos.</p>
+</li>
+</ol>
+<h3>¿Por qué ETL?</h3>
+<p>ETL se desarrolló para satisfacer la naturaleza costosa de las primeras soluciones de almacenamiento de datos. Estos sistemas históricos requerían una extracción y transformación cuidadosa de pequeños subconjuntos de datos antes de la carga para optimizar los costos de almacenamiento y el tiempo de procesamiento.</p>
+<h3>Comprendiendo ELT</h3>
+<p>ELT significa Extraer, Cargar y Transformar. Con los avances en la computación en la nube y las soluciones de almacenamiento de datos más asequibles, ELT se ha vuelto más viable para muchas organizaciones.</p>
+<ul>
+<li>
+<p><strong>El Cambio en el Proceso:</strong> A diferencia de ETL, ELT implica cargar datos en bruto directamente en un almacén de datos. Este enfoque puede ser ventajoso ya que permite más flexibilidad; se almacena información en bruto que se puede transformar según sea necesario, lo que habilita análisis dinámicos según las necesidades actuales de datos.</p>
+</li>
+<li>
+<p><strong>Eficiencia de Costos y Flexibilidad:</strong> Almacenar datos en la nube facilita y abarata el manejo de grandes volúmenes de datos diversos, y los cambios en los datos fuente se pueden incorporar fácilmente sin transformaciones preventivas.</p>
+</li>
+</ul>
+<h3>¿Cuándo Usar ETL vs ELT?</h3>
+<p>En general, más organizaciones hoy en día prefieren ELT debido a su simplicidad y la capacidad de manejar grandes volúmenes de distintos tipos de datos. Sin embargo, la elección entre ETL y ELT puede depender de varios factores:</p>
+<ul>
+<li>
+<p><strong>ETL</strong> es beneficioso cuando necesitas transformar datos antes de cargarlos para minimizar el almacenamiento de datos irrelevantes, o cuando trabajas con soluciones de datos locales donde el almacenamiento es caro.</p>
+</li>
+<li>
+<p><strong>ELT</strong> es preferido al tratar con transformaciones complejas, aprovechando almacenes de datos en la nube con gran capacidad de procesamiento que permiten transformaciones flexibles, después de la carga.</p>
+</li>
+</ul>
+<h3>Ejemplo Práctico</h3>
+<p>En un proceso ETL, los datos son extraídos de bases de datos, APIs y archivos CSV, se trasladan a un área de espera para la transformación, y luego se cargan en un almacén de datos. ELT, por otro lado, extrae los mismos datos directamente al almacén donde ocurre la transformación después de la carga.</p>
+<p> </p>
+<h2>&gt; cat outro.txt</h2>
+<p>Espero que esta explicación de ETL y ELT aclare en qué consisten estos procesos, por qué son importantes y cuándo deberías optar por cada uno. Mientras la tecnología evoluciona, ambos, ETL y ELT, continúan siendo componentes críticos de estrategias eficientes de procesamiento y gestión de datos.</p>
+<p> </p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"ETL y ELT no es cuestión de tendencia, sino de alinear tu estrategia de datos"</span> <span class="token operator">></span> /dev/stdout</code></pre>
+
+  </div>
+  
+  <!-- Comments section -->
+  <div class="post-comments">
+    <h2>Comments</h2>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="35e740db-8caf-4026-ba4a-1658012691e4"
+      data-page-id="/blog/etl-elt-cuando-usar-cada-uno/"
+      data-page-url="https://valdezdata.com/blog/etl-elt-cuando-usar-cada-uno/"
+      data-page-title="ETL y ELT - Cuándo y Por qué Usar Cada Uno?"
+      data-theme="dark"
+    ></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </div>
+  
+  <div class="post-navigation">
+    <a href="/">> cd ..</a>
+  </div>
+</article>
+
+      </div>
+      
+      <div class="terminal-footer">
+        <p>© 2025 Omar Valdez - Built with <a href="https://www.11ty.dev/">11ty</a> and 💙</p>
+      </div>
+     <div style="text-align: center; margin-top: 20px;">
+         <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+         <script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'A0A7179YKV');kofiwidget2.draw();</script>
+     </div>
+    </div>
+  </div>
+    
+  <!-- <script src="/js/terminal.js"></script> -->
+  <script src="/js/terminal.js"></script>
+  <!-- Cabin Analytics -->
+  <script async defer src="https://scripts.withcabin.com/hello.js"></script>
+</body>
+</html>
