@@ -17,6 +17,17 @@ excerpt: Descubre las razones por las que la arquitectura de datos es una posici
 
 Un Arquitecto de Datos diseña la estructura de almacenamiento, organización y utilización de datos para garantizar la calidad y flexibilidad de los mismos. Se enfoca en la estrategia y tácticas, trabajando en estrecha colaboración con ingenieros de datos para implementar la arquitectura. Comprender el ciclo de vida de la ingeniería de datos y los desafíos comunes es clave para agregar el valor empresarial necesario.
 
+### Video
+
+Si deseas ver video en vez de leer, [haz click aquí.](https://www.youtube.com/embed/Si4gsLP1Yqs)
+
+<div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Si4gsLP1Yqs" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+
 ## > cat intro.txt
 
 Hoy en día, es esencial que los datos puedan ser accedidos y reutilizados no solo por profesionales, sino también por usuarios comunes, como aquellos que utilizan redes sociales y tratan de descargar su propia información.

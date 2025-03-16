@@ -303,6 +303,14 @@ y de los recursos de gestión de datos.</p>
     <id>https://valdezdata.com/blog/por-que-ser-arquitecto-de-datos/</id>
     <content type="html"><![CDATA[<h3>TL;DR</h3>
 <p>Un Arquitecto de Datos diseña la estructura de almacenamiento, organización y utilización de datos para garantizar la calidad y flexibilidad de los mismos. Se enfoca en la estrategia y tácticas, trabajando en estrecha colaboración con ingenieros de datos para implementar la arquitectura. Comprender el ciclo de vida de la ingeniería de datos y los desafíos comunes es clave para agregar el valor empresarial necesario.</p>
+<h3>Video</h3>
+<p>Si deseas ver video en vez de leer, <a href="https://www.youtube.com/embed/Si4gsLP1Yqs">haz click aquí.</a></p>
+<div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Si4gsLP1Yqs" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
 <h2>&gt; cat intro.txt</h2>
 <p>Hoy en día, es esencial que los datos puedan ser accedidos y reutilizados no solo por profesionales, sino también por usuarios comunes, como aquellos que utilizan redes sociales y tratan de descargar su propia información.</p>
 <p>Tareas como crear, guardar, ingerir, transformar, procesar y visualizar datos requieren tiempo y esfuerzo.</p>
@@ -441,6 +449,69 @@ y de los recursos de gestión de datos.</p>
 <p>Por último, los Arquitectos de Datos empoderan a las organizaciones para utilizar eficazmente sus recursos de datos, impulsando el valor empresarial y la innovación.</p>
 <p> </p>
 <pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"Sin estrategia de datos hay deuda de datos"</span> <span class="token operator">></span> /dev/stdout</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>ETL y ELT - Cuándo y Por qué Usar Cada Uno?</title>
+    <link href="https://valdezdata.com/blog/etl-elt-cuando-usar-cada-uno/"/>
+    <updated>3/9/2025</updated>
+    <id>https://valdezdata.com/blog/etl-elt-cuando-usar-cada-uno/</id>
+    <content type="html"><![CDATA[<h3>TL;DR</h3>
+<p>ETL y ELT son metodologías para integrar y procesar datos. En ETL, los datos se extraen, se transforman (limpieza y adaptación) y luego se cargan en un almacén, una metodología útil en entornos con almacenamiento costoso o limitado. En ELT, los datos se extraen, se cargan directamente en el almacén (a menudo en la nube) y luego se transforman según se necesite, ofreciendo mayor flexibilidad para analizar grandes volúmenes de datos sin preprocesarlos. La elección entre ambos depende de las necesidades de transformación, costos de almacenamiento y el entorno tecnológico.</p>
+<h3>Video</h3>
+<p>Si deseas ver video en vez de leer, <a href="https://www.youtube.com/watch?v=3rRU-v8RJZ0">haz click aquí.</a></p>
+<div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3rRU-v8RJZ0" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+<p> </p>
+<h2>&gt; cat intro.txt</h2>
+<p>En la era digital actual, saber cómo procesar y gestionar datos de manera eficiente es crucial. Dos procesos clave de integración de datos que a menudo entran en juego son ETL (Extraer, Transformar, Cargar) y ELT (Extraer, Cargar, Transformar). En este artículo, cubriremos en qué consisten estos procesos, por qué son importantes y cuándo utilizarlos.</p>
+<h2>&gt; cat body.txt</h2>
+<h3>¿Qué es ETL?</h3>
+<p>ETL significa Extraer, Transformar y Cargar. Es una tubería de datos que se utiliza para recolectar datos de diversas fuentes, transformarlos en un formato o estructura adecuado para el análisis, y luego cargarlos en un almacén de datos u otro destino de datos.</p>
+<ol>
+<li>
+<p><strong>Extracción:</strong> Este paso implica reunir toda la información relevante de las fuentes designadas e ingresarla en un área de almacenamiento temporal donde pueda ser procesada.</p>
+</li>
+<li>
+<p><strong>Transformación:</strong> En esta fase, los datos en bruto se limpian y transforman para asegurarse de que estén en el formato correcto para el análisis. Esto puede implicar cambiar tipos de datos, agregar datos o enriquecerlos con información adicional.</p>
+</li>
+<li>
+<p><strong>Carga:</strong> Finalmente, los datos transformados se cargan en el repositorio de datos definitivo, como un almacén de datos.</p>
+</li>
+</ol>
+<h3>¿Por qué ETL?</h3>
+<p>ETL se desarrolló para satisfacer la naturaleza costosa de las primeras soluciones de almacenamiento de datos. Estos sistemas históricos requerían una extracción y transformación cuidadosa de pequeños subconjuntos de datos antes de la carga para optimizar los costos de almacenamiento y el tiempo de procesamiento.</p>
+<h3>Comprendiendo ELT</h3>
+<p>ELT significa Extraer, Cargar y Transformar. Con los avances en la computación en la nube y las soluciones de almacenamiento de datos más asequibles, ELT se ha vuelto más viable para muchas organizaciones.</p>
+<ul>
+<li>
+<p><strong>El Cambio en el Proceso:</strong> A diferencia de ETL, ELT implica cargar datos en bruto directamente en un almacén de datos. Este enfoque puede ser ventajoso ya que permite más flexibilidad; se almacena información en bruto que se puede transformar según sea necesario, lo que habilita análisis dinámicos según las necesidades actuales de datos.</p>
+</li>
+<li>
+<p><strong>Eficiencia de Costos y Flexibilidad:</strong> Almacenar datos en la nube facilita y abarata el manejo de grandes volúmenes de datos diversos, y los cambios en los datos fuente se pueden incorporar fácilmente sin transformaciones preventivas.</p>
+</li>
+</ul>
+<h3>¿Cuándo Usar ETL vs ELT?</h3>
+<p>En general, más organizaciones hoy en día prefieren ELT debido a su simplicidad y la capacidad de manejar grandes volúmenes de distintos tipos de datos. Sin embargo, la elección entre ETL y ELT puede depender de varios factores:</p>
+<ul>
+<li>
+<p><strong>ETL</strong> es beneficioso cuando necesitas transformar datos antes de cargarlos para minimizar el almacenamiento de datos irrelevantes, o cuando trabajas con soluciones de datos locales donde el almacenamiento es caro.</p>
+</li>
+<li>
+<p><strong>ELT</strong> es preferido al tratar con transformaciones complejas, aprovechando almacenes de datos en la nube con gran capacidad de procesamiento que permiten transformaciones flexibles, después de la carga.</p>
+</li>
+</ul>
+<h3>Ejemplo Práctico</h3>
+<p>En un proceso ETL, los datos son extraídos de bases de datos, APIs y archivos CSV, se trasladan a un área de espera para la transformación, y luego se cargan en un almacén de datos. ELT, por otro lado, extrae los mismos datos directamente al almacén donde ocurre la transformación después de la carga.</p>
+<p> </p>
+<h2>&gt; cat outro.txt</h2>
+<p>Espero que esta explicación de ETL y ELT aclare en qué consisten estos procesos, por qué son importantes y cuándo deberías optar por cada uno. Mientras la tecnología evoluciona, ambos, ETL y ELT, continúan siendo componentes críticos de estrategias eficientes de procesamiento y gestión de datos.</p>
+<p> </p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"ETL y ELT no es cuestión de tendencia, sino de alinear tu estrategia de datos"</span> <span class="token operator">></span> /dev/stdout</code></pre>
 ]]></content>
   </entry>
 </feed>
