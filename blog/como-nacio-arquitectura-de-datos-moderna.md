@@ -22,7 +22,7 @@ La arquitectura de datos ha pasado de los costosos y rígidos data warehouses re
 
 ### Video
 
-Si deseas ver video en vez de leer, [haz click aquí.](https://www.youtube.com/watch?v=3rRU-v8RJZ0)
+Si deseas ver video en vez de leer, [haz click aquí.](https://www.youtube.com/watch?v=lMP7U6HCTQk)
 
 <div style="text-align: center;">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/lMP7U6HCTQk" 
