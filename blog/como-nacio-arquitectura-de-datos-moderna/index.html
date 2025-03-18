@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Nació la Arquitectura de Datos Moderna | valdezdata</title>
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- <link rel="stylesheet" href="/css/prism-tokyo-night.css"> -->
+  <link rel="stylesheet" href="/css/prism-tokyo-night.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="valdezdata blog">
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <div class="terminal-button red"></div>
+        <div class="terminal-button yellow"></div>
+        <div class="terminal-button green"></div>
+      </div>
+      <div class="terminal-title">valdezdata@blog:~</div>
+    </div>
+    
+    <div class="terminal-content">
+      <div class="ascii-header">
+        <a href="/" class="ascii-link">
+        <pre>
+██╗   ██╗ █████╗ ██╗     ██████╗ ███████╗███████╗██████╗  █████╗ ████████╗ █████╗ 
+██║   ██║██╔══██╗██║     ██╔══██╗██╔════╝╚══███╔╝██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
+██║   ██║███████║██║     ██║  ██║█████╗    ███╔╝ ██║  ██║███████║   ██║   ███████║
+╚██╗ ██╔╝██╔══██║██║     ██║  ██║██╔══╝   ███╔╝  ██║  ██║██╔══██║   ██║   ██╔══██║
+ ╚████╔╝ ██║  ██║███████╗██████╔╝███████╗███████╗██████╔╝██║  ██║   ██║   ██║  ██║
+  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝
+        </pre>
+        </a>
+      </div>
+      
+      <div class="typing-container">
+        <div class="typing-text" id="typing-text"></div>
+        <div class="cursor"></div>
+      </div>
+      
+      <div class="tags-container" id="tags-container">
+        <!-- Tags will be added dynamically by JavaScript -->
+      </div>
+      
+      <nav class="terminal-nav">
+        <ul>
+          <li><a href="/">> home</a></li>
+          <li><a href="/whoami/">> whoami</a></li>
+          <li><a href="/usos/">> usos</a></li>
+          <li><a href="/tags/">> tags</a></li>
+          <li><a href="https://payhip.com/valdezdata">> shop</a></li>
+          <li><a href="/feed.xml">> rss</a></li>
+          <li><a href="https://withcabin.com/privacy/valdezdata.com">> cabin</a></li>
+        </ul>
+      </nav>
+      
+      <div class="content">
+        
+<article class="post">
+  <h1 class="post-header">Cómo Nació la Arquitectura de Datos Moderna</h1>
+  
+  <div class="post-meta">
+    <time datetime="Mar 18, 2025">Mar 18, 2025</time>
+    
+      • 
+      
+        
+          <a href="/tags/datawarehouse/" class="tag">datawarehouse</a> 
+        
+      
+        
+          <a href="/tags/datalake/" class="tag">datalake</a> 
+        
+      
+        
+          <a href="/tags/datalakehouse/" class="tag">datalakehouse</a> 
+        
+      
+        
+          <a href="/tags/bigdata/" class="tag">bigdata</a> 
+        
+      
+        
+          <a href="/tags/dataarchitect/" class="tag">dataarchitect</a> 
+        
+      
+        
+          <a href="/tags/metadata/" class="tag">metadata</a> 
+        
+      
+        
+          <a href="/tags/etl/" class="tag">etl</a> 
+        
+      
+        
+          <a href="/tags/datastrategy/" class="tag">datastrategy</a>
+        
+      
+    
+  </div>
+  
+  <div class="post-content">
+    <h3>TL;DR</h3>
+<p>La arquitectura de datos ha pasado de los costosos y rígidos data warehouses relacionales a los flexibles data lakes y, finalmente, al data lakehouse, que combina lo mejor de ambos mundos. Gracias a la nube, ahora es más sencillo escalar y manejar distintos tipos de datos, pero el orden (metadata) y las vías de acceso (APIs) siguen siendo clave para encontrar valor rápidamente en toda esta información.</p>
+<h3>Video</h3>
+<p>Si deseas ver video en vez de leer, <a href="https://www.youtube.com/watch?v=3rRU-v8RJZ0">haz click aquí.</a></p>
+<div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lMP7U6HCTQk" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+<p> </p>
+<h2>&gt; cat intro.txt</h2>
+<p>En algún momento, los datos que una empresa manejaba podían almacenarse cómodamente en un único servidor. Hoy, la realidad es muy distinta: la nube es el hogar de nuestras enormes cantidades de datos. Este cambio no ocurrió de la noche a la mañana. Veamos cómo la arquitectura de datos ha evolucionado a lo largo del tiempo y los nuevos retos a los que nos enfrentamos hoy.</p>
+<h3>Por Qué Importa la Arquitectura de Datos</h3>
+<p>Imagina que en tu cocina todo estuviera desordenado: te costaría encontrar tus ingredientes, algunos se echarían a perder, y podrías terminar cocinando algo que no necesitas. Lo mismo sucede con los datos. Sin un plan de organización y almacenamiento, es fácil perderse en el caos de la información.</p>
+<h2>&gt; cat body.txt</h2>
+<h3><strong>El Comienzo: Data Warehouse Relacional</strong></h3>
+<p>En los años 80, el data warehouse relacional era la estrella del show. Este tipo de almacén de datos, iniciado por Teradata en 1983, permitió a las empresas almacenar y consultar datos en un único sistema. Sin embargo, ampliar la capacidad de almacenamiento era costoso y complicado.</p>
+<p>En esencia, era como una biblioteca en la que para agregar estantes había que reconstruir el edificio.</p>
+<h3><strong>El Avance: Data Lake</strong></h3>
+<p>Llegamos al 2010 y con ello a la aparición del &quot;data lake&quot; gracias a Hadoop. Ahora las empresas podían almacenar grandes cantidades de datos en su forma pura y sin procesar. Esto solucionaba algunos problemas del pasado, pero presentaba nuevos retos: obtener la información útil era como buscar una aguja en un pajar, ya que las empresas estaban gestionando más datos de los que podían manejar efectivamente.</p>
+<h3><strong>La Nube y el Modern Data Warehouse</strong></h3>
+<p>La introducción de la nube cambió mucho las cosas. Ya no necesitábamos servidores físicos para almacenar datos. La nube nos permitió alquilar almacenamiento según nuestras necesidades, ofreciéndonos flexibilidad para manejar tanto texto como imágenes o datos en streaming.</p>
+<p>Esto condujo al nacimiento del Modern Data Warehouse, una mezcla de lo mejor de los métodos anteriores, aprovechando la flexibilidad de los data lakes mientras mantenía la organización del data warehouse.</p>
+<h3><strong>La Era del Data Lakehouse</strong></h3>
+<p>En 2020, el concepto del data lakehouse salió a la luz. Se buscaba crear un entorno único donde todo tipo de datos—estructurados o no—pudieran almacenarse juntos. Una capa de software permitiría que funcionara como una base de datos tradicional, ofreciendo lo mejor de ambos mundos: la gestión eficiente y la flexibilidad de almacenamiento.</p>
+<h3><strong>Elementos Cruciales: Metadata y APIs</strong></h3>
+<p>Para que el data lakehouse funcione bien, dos componentes son esenciales: metadata y APIs. La metadata actúa como un índice que ayuda a entender y utilizar los datos adecuadamente en cada etapa.</p>
+<p>Las APIs son los accesos directos, facilitando el intercambio de datos pulidos entre sistemas, lo cual es crucial para obtener información útil rápidamente.</p>
+<p> </p>
+<h2>&gt; cat outro.txt</h2>
+<p>La arquitectura de datos nunca deja de evolucionar. Siempre habrá nuevos problemas que resolver, pero cada desafío nos brinda la oportunidad de innovar y aprender.</p>
+<p> </p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"En los datos, la única constante es el cambio"</span> <span class="token operator">></span> /dev/stdout</code></pre>
+
+  </div>
+  
+  <!-- Comments section -->
+  <div class="post-comments">
+    <h2>Comments</h2>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="35e740db-8caf-4026-ba4a-1658012691e4"
+      data-page-id="/blog/como-nacio-arquitectura-de-datos-moderna/"
+      data-page-url="https://valdezdata.com/blog/como-nacio-arquitectura-de-datos-moderna/"
+      data-page-title="Cómo Nació la Arquitectura de Datos Moderna"
+      data-theme="dark"
+    ></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </div>
+  
+  <div class="post-navigation">
+    <a href="/">> cd ..</a>
+  </div>
+</article>
+
+      </div>
+      
+      <div class="terminal-footer">
+        <p>© 2025 Omar Valdez - Built with <a href="https://www.11ty.dev/">11ty</a> and 💙</p>
+      </div>
+     <div style="text-align: center; margin-top: 20px;">
+         <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+         <script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'A0A7179YKV');kofiwidget2.draw();</script>
+     </div>
+    </div>
+  </div>
+    
+  <!-- <script src="/js/terminal.js"></script> -->
+  <script src="/js/terminal.js"></script>
+  <!-- Cabin Analytics -->
+  <script async defer src="https://scripts.withcabin.com/hello.js"></script>
+</body>
+</html>
